@@ -1,10 +1,13 @@
+body{
+    background-color: rgb(179, 178, 178);
+}
 .fsection {
     position: relative;
     width: 1000px;
     max-width: 1200px;
     margin: 0 auto;
     height: 450px;
-    overflow: hidden;
+    overflow: visible; 
 }
 
 .background-img {
@@ -52,12 +55,12 @@ h1{
     margin-top: 20px;
 }
 #slogan{
-    bottom: -140px;
+    bottom: -150px;
     left: 80px;
     text-align: left;
     position: relative;
     font-size: 50px;
-    font-family:  italic "sans-serif";
+    font-family: "sans-serif";
     font-weight: normal; 
     z-index: 3;
 }
@@ -81,31 +84,90 @@ h1{
     top: 0;
     left: 0;
 }
-main {
-    background-color: black;
-    height: 300px;  
-    margin: 0px;
-    position: relative; 
-}
-article {
-    background-color: white;
-    height: 450px;
-    width: 900px; 
-    margin: 0 auto; 
-    margin-top: -50px;
+main{
+    background-color: rgba(0, 0, 0, 0.724);
     position: relative;
-    z-index: 4;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 1000px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 450px;
+    overflow: visible; 
+}
+.container {
+    display: flex;
+    margin-top: -60px;
+    position: relative;
+    bottom: 50px;
+    width: 980px;
+    align-items: flex-end;
+    height: 50px;
+    margin: 0 auto; 
+    z-index: 10;
+    background: rgb(255, 255, 255);;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: 0.25s ease;
+    height: 50px;
+    align-items: flex-end;
+}
+input{
+    display: none;
+}
+.content {
+    width: 490px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-family: "sans-serif";
+    font-weight: bold;
+    cursor: pointer;
+    background:rgba(159, 157, 157, 0.25);
+    padding: 10px 60px;
+    box-sizing: border-box;
+    cursor: pointer;
+    z-index: 7;
+}
+input:checked + label .content {
+    background:rgba(120, 120, 122, 0.75);
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: 800px;
+    border-top-left-radius: 5px;
+
+}
+.tab-content {
+    width: 980px;
+    min-height: 300px; 
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: white; /* Color sólido */
+    color: black;
+    font-family: sans-serif;
+    padding: 40px;
+    box-sizing: border-box;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 9;
+    display: block; /* Asegúrate de que el contenedor siempre exista */
 }
 
-div {
-    width: 1000px;
-    height: 500px;
-    background-color: rgb(0, 0, 0);
-    display: flex;           
-    justify-content: center;  
-    align-items: center;     
-    margin: 0 auto; 
+/* LA MAGIA: Ocultar y mostrar los datos específicos */
+.booking-data, .check-in-data {
+    display: none; /* Ocultos por defecto */
+}
+
+/* Si el botón 1 está marcado, muestra booking-data */
+#tab1:checked ~ .tab-content .booking-data {
+    display: block !important;
+}
+
+/* Si el botón 2 está marcado, muestra check-in-data */
+#tab2:checked ~ .tab-content .check-in-data {
+    display: block !important;
+}
+.text {
+    position: absolute;
+    color: black;
+    z-index: 10; 
 }
