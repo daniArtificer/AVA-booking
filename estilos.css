@@ -4,7 +4,7 @@
     max-width: 1200px;
     margin: 0 auto;
     height: 450px;
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .background-img {
@@ -85,21 +85,29 @@ article {
 
 .container {
     width: 1000px;
-    height: 400px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: -60px;
+    position: absolute;
+    bottom: 10px;
+    height: auto;
     display: flex;
     margin: 0 auto; 
-    z-index: 7;
+    z-index: 10;
+    background: white;
 }
 input{
     display: none;
 }
 .content {
+    flex: 1;
     color: rgb(0, 0, 0);
     font-family: "sans-serif";
     height: 45px;
     background:rgba(142, 137, 137, 0.25);
-    padding: 10px 30px;
+    padding: 10px 60px;
     box-sizing: border-box;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     z-index: 7;
 }
