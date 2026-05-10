@@ -49,11 +49,28 @@ h1{
     font-family:"sans-serif";
     font-weight: bold;
     margin: 0;
+    margin-top: 20px;
+}
+#slogan{
+    bottom: -140px;
+    left: 80px;
+    text-align: left;
+    position: relative;
+    font-size: 50px;
+    font-family:  italic "sans-serif";
+    font-weight: normal; 
+    z-index: 3;
+}
+#downt{
+    margin-top: -5px; 
+    font-family: "sans-serif";
+    font-weight: normal;
 }
 #logo{
     align-items:center;
     width: 50px;
     height: 50px;
+    border-radius: 20px;
     background-color: transparent;
 }
 
@@ -73,9 +90,9 @@ main {
 article {
     background-color: white;
     height: 450px;
-    width: 900px; 
+    width: 1000px; 
     margin: 0 auto; 
-    margin-top: -50px;
+    margin-top: -40px;
     position: relative;
     z-index: 4;
     padding: 20px;
@@ -84,13 +101,15 @@ article {
 }
 
 .container {
-    width: 1000px;
     display: flex;
     margin: 0 auto;
-    margin-top: -60px;
+    margin-top: -50px;
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     height: auto;
+    width: 1000px;
+    align-items: flex-end;
+    height: 50px;
     display: flex;
     margin: 0 auto; 
     z-index: 10;
@@ -101,29 +120,32 @@ input{
 }
 .content {
     flex: 1;
+    width: 500px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin: 0;
     color: rgb(0, 0, 0);
     font-family: "sans-serif";
-    height: 45px;
-    background:rgba(142, 137, 137, 0.25);
+    font-weight: bold;
+    cursor: pointer;
+    background:rgba(159, 157, 157, 0.25);
     padding: 10px 60px;
     box-sizing: border-box;
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(172, 171, 171, 0.1);
     cursor: pointer;
     z-index: 7;
 }
 input:checked + label .content {
     background:rgba(66, 67, 74, 0.75);
     color: rgb(0, 0, 0);
-    display: block;
 }
 .tab-content {
     display: none;
-    background-color: white;
-    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
     margin-top: 10px;
     border-radius: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-input:checked + label .tab-content {
-    display: block;
+    z-index: 7;
 }
