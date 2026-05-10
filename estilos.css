@@ -78,18 +78,44 @@ article {
     margin-top: -50px;
     position: relative;
     z-index: 4;
-
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-div {
+.container {
     width: 1000px;
     height: 400px;
-    background-color: rgb(0, 0, 0);
-    display: flex;           
-    justify-content: center;  
-    align-items: center;     
+    display: flex;
     margin: 0 auto; 
+    z-index: 7;
+}
+input{
+    display: none;
+}
+.content {
+    color: rgb(0, 0, 0);
+    font-family: "sans-serif";
+    height: 45px;
+    background:rgba(142, 137, 137, 0.25);
+    padding: 10px 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    z-index: 7;
+}
+input:checked + label .content {
+    background:rgba(66, 67, 74, 0.75);
+    color: rgb(0, 0, 0);
+    display: block;
+}
+.tab-content {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+input:checked + label .tab-content {
+    display: block;
 }
