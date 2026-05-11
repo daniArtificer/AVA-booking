@@ -7,7 +7,7 @@ div {
     padding-top: 25px;
     text-align: center;
     font-weight: bold;
-    color: #656d6e;;
+    color: #1b2729;;
     font-size: 20px;
 }
 nav {
@@ -89,9 +89,10 @@ nav {
     padding-top: 80px;
     justify-content: center;
     justify-items: center;
-    color: #a0aab4;
+    color: #151f29;
     font-size: 25px;
     font-weight: normal;
 }
-
-
+.exit{
+    margin-bottom: 60px;
+}

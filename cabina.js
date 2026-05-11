@@ -55,7 +55,3 @@ for (let f = 0; f < numFilas; f++) {
     
     for (let i = 0; i < 3; i++) standardContainer.appendChild(crearAsientob());
 }
-
-    standardContainer.appendChild(pasillo2);
-    for (let i = 0; i < 3; i++) standardContainer.appendChild(crearAsientob());
-}
