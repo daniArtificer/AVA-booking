@@ -182,7 +182,6 @@ input:checked + label .content {
     cursor: pointer;
     font-size: 22px;
     user-select: none;
-    margin-bottom: 70px;
 }
 .radio-container input {
     position: absolute;
@@ -246,7 +245,8 @@ input[type="text"] {
     display: none; 
     position: absolute;
     width: 400px;
-    background: white;
+    height: 300px;
+    background: rgb(255, 255, 255);
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -265,10 +265,10 @@ input[type="text"] {
     padding: 12px 20px;
     background: #f8f8f8;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 20px;
-    width: 200px;
+    font-size: 22px;
+    width: 230px;
     font-family: sans-serif;
 }
 
@@ -277,4 +277,15 @@ input[type="text"] {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+}
+.btn-confirm{
+    display: block;
+    width: 400px;
+    padding: 12px 0;
+    background: #03182a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 22px;
 }

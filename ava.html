@@ -49,18 +49,14 @@
                 <label for="to">Destination:</label>
                 <input type="text" id="to" name="destination" placeholder="City or Airport" required>
             </div>
-        </div>
         <div class="booking-row">
-<div class="passenger-selector">
-    <input type="checkbox" id="check-passengers" class="toggle-input">
-    
-    <label for="check-passengers" class="passengers-trigger">
-        Select Passengers <span class="arrow">▼</span>
-    </label>
-
-    <div class="dropdown-box">
-        <!-- Fila: Adultos -->
-        <div class="passenger-row">
+          <div class="passenger-selector">
+            <input type="checkbox" id="check-passengers" class="toggle-input">
+            <label for="check-passengers" id="passengers-text" class="passengers-trigger">
+              Select Passengers <span class="arrow">▼</span>
+            </label>
+            <div class="dropdown-box">
+              <div class="passenger-row">
             <div class="label-group">
                 <span class="main-label">Adults</span>
                 <span class="sub-label">12+ years</span>
@@ -71,8 +67,6 @@
                 <button type="button" onclick="cambiarCantidad('adults', 1)">+</button>
             </div>
         </div>
-
-        <!-- Fila: Niños -->
         <div class="passenger-row">
             <div class="label-group">
                 <span class="main-label">Children</span>
@@ -85,7 +79,6 @@
             </div>
         </div>
 
-        <!-- Fila: Seniors -->
         <div class="passenger-row">
             <div class="label-group">
                 <span class="main-label">Seniors</span>
@@ -101,5 +94,6 @@
         <label for="check-passengers" class="btn-confirm" style="display:block; text-align:center; cursor:pointer;">
             Confirm
         </label>
+        <script src="principal.js"></script>
     </div>
 </div>
