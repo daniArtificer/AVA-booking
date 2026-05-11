@@ -1,6 +1,4 @@
-
-.cabina {
-    
+.cabina{
     display: grid;
     background-color: #a0a0a0;
     grid-template-columns: repeat(3, 100px) 80px repeat(3, 100px); 
@@ -15,7 +13,7 @@
     gap: 20px; 
     justify-content: center;
     padding: 50px;
-    box-sizing: border-box 50px;
+    box-sizing: border-box;
 }
 
 .asientob {

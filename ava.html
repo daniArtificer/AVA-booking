@@ -50,12 +50,56 @@
                 <input type="text" id="to" name="destination" placeholder="City or Airport" required>
             </div>
         </div>
-        <div class="check-in-data">
-            <h2>Check-in</h2>
-            <p>Check in for your flight here...</p>
+        <div class="booking-row">
+<div class="passenger-selector">
+    <input type="checkbox" id="check-passengers" class="toggle-input">
+    
+    <label for="check-passengers" class="passengers-trigger">
+        Select Passengers <span class="arrow">▼</span>
+    </label>
+
+    <div class="dropdown-box">
+        <!-- Fila: Adultos -->
+        <div class="passenger-row">
+            <div class="label-group">
+                <span class="main-label">Adults</span>
+                <span class="sub-label">12+ years</span>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="cambiarCantidad('adults', -1)">-</button>
+                <span id="num-adults">1</span>
+                <button type="button" onclick="cambiarCantidad('adults', 1)">+</button>
+            </div>
         </div>
-      </article>
-      </section>
-    </main>
-</body>
-</html>
+
+        <!-- Fila: Niños -->
+        <div class="passenger-row">
+            <div class="label-group">
+                <span class="main-label">Children</span>
+                <span class="sub-label">2-11 years</span>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="cambiarCantidad('children', -1)">-</button>
+                <span id="num-children">0</span>
+                <button type="button" onclick="cambiarCantidad('children', 1)">+</button>
+            </div>
+        </div>
+
+        <!-- Fila: Seniors -->
+        <div class="passenger-row">
+            <div class="label-group">
+                <span class="main-label">Seniors</span>
+                <span class="sub-label">65+ years</span>
+            </div>
+            <div class="controls">
+                <button type="button" onclick="cambiarCantidad('seniors', -1)">-</button>
+                <span id="num-seniors">0</span>
+                <button type="button" onclick="cambiarCantidad('seniors', 1)">+</button>
+            </div>
+        </div>
+        
+        <label for="check-passengers" class="btn-confirm" style="display:block; text-align:center; cursor:pointer;">
+            Confirm
+        </label>
+    </div>
+</div>

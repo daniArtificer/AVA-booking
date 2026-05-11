@@ -164,7 +164,7 @@ input:checked + label .content {
 
 /* Si el botón 2 está marcado, muestra check-in-data */
 #tab2:checked ~ .tab-content .check-in-data {
-    display: block !important;
+    display: block;
 }
 .text {
     position: absolute;
@@ -227,10 +227,54 @@ input:checked + label .content {
 
 input[type="text"] {
     display: block;
-    width: 880px;
+    width: 500px;
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 22px;
+}
+.label-group {
+    display: flex;
+    flex-direction: column;
+}
+.toggle-input {
+    display: none;
+}
+
+.dropdown-box {
+    display: none; 
+    position: absolute;
+    width: 400px;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    z-index: 10; 
+    font-size: 25px;
+}
+
+/* 2. LÓGICA DE ACTIVACIÓN: El selector ~ busca al hermano .dropdown-box [1, 2] */
+.toggle-input:checked ~ .dropdown-box {
+    display: block; /* Se activa solo cuando el checkbox está marcado */
+}
+
+/* Estilo para el botón disparador */
+.passengers-trigger {
+    display: block;
+    padding: 12px 20px;
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 200px;
+    font-family: sans-serif;
+}
+
+.passenger-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
