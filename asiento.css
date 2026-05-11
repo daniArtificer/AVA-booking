@@ -1,27 +1,60 @@
-.asiento{
+
+.cabina {
+    
+    display: grid;
+    background-color: #a0a0a0;
+    grid-template-columns: repeat(3, 100px) 80px repeat(3, 100px); 
+    gap: 20px; 
+    justify-content: center;
+    padding: 50px;
+}
+.cabinavp {
+    display: grid;
+    background-color: #bababa;
+    grid-template-columns:  repeat(2, 100px)  280px repeat(2, 100px); 
+    gap: 20px; 
+    justify-content: center;
+    padding: 50px;
+    box-sizing: border-box 50px;
+}
+
+.asientob {
+    position: relative; 
     width: 100px;
     height: 100px;
-    background-color: rgba(36, 108, 85, 0.614);
+    background-color: #7FC7CC;
     border-radius: 30px;
 }
-.asiento:hover{
-    background-color: rgb(139, 0, 63);
-    transition-duration: 400ms;
-    transition-timing-function: ease-out;
+
+.asientov {
+    position: relative; 
+    width: 100px;
+    height: 100px;
+    background-color: #E4CBA9;
+    border-radius: 30px;
 }
-.varandal{
-      display: block;
-      position: absolute;
-      left: 8px;
-      right: 8px;
-      bottom: 320px;
-      height: 40px;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-      border-bottom: 30px solid #656d6e;
-      border-left: 8px solid #656d6e;
-      border-right: 8px solid #656d6e;
-      border-top: none;
-      background: transparent;
-      width: 84px;
+
+.asientob.seleccionado, .asientov.seleccionado {
+    background-color: #092F33;
+    transition: 0.3s;
+}
+
+.varandal {
+    display: block;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px; 
+    height: 25px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 20px solid #656d6e;
+    border-left: 8px solid #656d6e;
+    border-right: 8px solid #656d6e;
+    background: transparent;
+}
+
+.pasillo {
+    background-color: transparent;
+    width: 80px;
 }
