@@ -380,7 +380,7 @@ input[type="text"] {
 
 .btn-search {
     padding: 15px 40px;
-    background-color: #53112b; /* El color guinda de tu proyecto */
+    background-color: #0a1040; /* El color guinda de tu proyecto */
     color: white;
     text-decoration: none;
     font-family: "sans-serif";
@@ -389,13 +389,13 @@ input[type="text"] {
     border-radius: 30px;
     transition: all 0.3s ease;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(83, 17, 43, 0.3);
+    box-shadow: 0 4px 15px rgba(21, 13, 65, 0.3);
 }
 
 .btn-search:hover {
-    background-color: #3d0d1f; /* Un guinda más oscuro al pasar el mouse */
+    background-color: #0d1b3d; /* Un guinda más oscuro al pasar el mouse */
     transform: translateY(-2px); /* Efecto de levante */
-    box-shadow: 0 6px 20px rgba(83, 17, 43, 0.4);
+    box-shadow: 0 6px 20px rgba(17, 32, 83, 0.4);
 }
 
 .btn-search:active {

@@ -1,0 +1,57 @@
+nav{
+    background-color: #22264d;
+    padding: 10px;
+    text-align: center;
+    height: 200px;
+}
+header{
+    background-color: white;
+    padding: 20px;
+    height: 800px;
+    display: flex;
+    flex-direction: row; 
+    gap: 50px;
+    box-sizing: border-box;
+    justify-content: center;
+}
+section{
+    background-color:transparent;
+    width: 700px;
+    padding: 20px;
+    padding-left: 30px;
+    margin-left: 20px;
+    height: 600px;
+    border-radius: 20px;
+    border-style:groove;
+}
+h2{
+    font-family: "Arial";
+}
+input{
+    width: 250px;
+    padding: 5px;
+    margin: 15px ;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-color: gray;
+    font-size:20px;
+}
+button{
+    width: fit-content; 
+    margin-bottom: 15px;
+    height: 25px;
+    border-radius: 20px;
+}
+article{
+    width: 500px;
+    height: 650px;
+    border-style: groove;
+    border-radius: 20px;
+}
+
+#Pregnancy {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #fff0f0; 
+}

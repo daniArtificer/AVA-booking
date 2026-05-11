@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <nav>
+    </nav>
+    <header>
+        <section>
+            <h2>Personal Details</h2>
+            <br>
+            <div>
+                <input type="name" placeholder="name" required>
+                <input type="lastn" placeholder="last name" required>
+            </div>
+            <div>
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div>
+                <input type="ID" placeholder="Passport" required>
+            </div>
+            <div>
+                <input type="date"required>
+            </div>
+            <select id="Gender">
+                <option value="opcion1">Female</option>
+                <option value="opcion2"selected>Male</option>
+                <option value="opcion3">None</option>
+            </select>
+            <div>
+                <form id="Pregnancy">
+                    <p>Are you Pregnant?</p>
+                        <input type="radio" name="sexo" value="Male" checked="checked" /> no<br/>
+                        <input type="radio" name="sexo" value="Female"/>yes
+                </form>
+            </div>
+        </section>
+        <side>
+            <article>
+                <button id="ticket">select fare</button>
+            </article>
+        </side>
+    </header>
+</body>
+</html>
