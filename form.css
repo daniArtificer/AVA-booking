@@ -26,6 +26,7 @@ section{
 }
 h2{
     font-family: "Arial";
+    margin-left: 20px;
 }
 input{
     width: 250px;
@@ -49,7 +50,26 @@ article{
     border-radius: 20px;
 }
 #Pregnancy {
+    font-size: 20px;
+    font-family: "Arial";
     display: none;
     margin-top: 5px;
-    padding: 10px; 
+    margin-left: 20px;
+    padding: 5px; 
+}
+.ask{
+    margin: 2px 5px 10px; 
+    width: auto;
+    background-color: #22264d;
+}
+#Gender{
+    font-family: "Arial";
+    font-size: 20px;
+    box-sizing: content-box;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+#calendary{
+    font-family: "Arial";
 }

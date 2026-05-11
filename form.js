@@ -1,10 +1,10 @@
 const Gender = document.getElementById('Gender');
 const Pregnancy = document.getElementById('Pregnancy');
 function validarEmbarazo() {
-    if (Gender.value === 'opcion1') {
-        Pregnancy.style.display = 'block';
-    } else {
+    if (Gender.value === 'opcion2') {
         Pregnancy.style.display = 'none';
+    } else {
+        Pregnancy.style.display = 'block';
     }
 }
 Gender.addEventListener('change', validarEmbarazo);
