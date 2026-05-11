@@ -371,3 +371,44 @@ input[type="text"] {
     opacity: 0;
     cursor: pointer;
 }
+.search-container {
+    display: flex;
+    justify-content: flex-end; /* Lo alinea a la derecha */
+    margin-top: 30px;
+    width: 100%;
+}
+
+.btn-search {
+    padding: 15px 40px;
+    background-color: #53112b; /* El color guinda de tu proyecto */
+    color: white;
+    text-decoration: none;
+    font-family: "sans-serif";
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(83, 17, 43, 0.3);
+}
+
+.btn-search:hover {
+    background-color: #3d0d1f; /* Un guinda más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de levante */
+    box-shadow: 0 6px 20px rgba(83, 17, 43, 0.4);
+}
+
+.btn-search:active {
+    transform: translateY(0);
+}
+.input-error {
+    border: 2px solid #b35a5a !important;
+    background-color: #fffafa;
+}
+
+.error-text {
+    color: #b35a5a;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none; /* Se muestra con JS */
+}

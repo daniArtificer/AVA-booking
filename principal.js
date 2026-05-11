@@ -60,3 +60,25 @@ function actualizarCajaPrincipal() {
 
     document.getElementById('passengers-text').innerHTML = textoResumen + ' ▼';
 }
+
+document.querySelector('.btn-search').addEventListener('click', function(event) {
+    const origin = document.getElementById('from').value.trim();
+    const destination = document.getElementById('to').value.trim();
+    const adults = parseInt(document.getElementById('num-adults').innerHTML);
+    const ninos = parseInt(document.getElementById('num-children').innerHTML);
+    const seniors = parseInt(document.getElementById('num-seniors').innerHTML);
+
+    const totalPassengers = adults + ninos + seniors;
+
+    // Validación
+    if (origin === "" || destination === "" || totalPassengers === 0) {
+        // Evita que el enlace te lleve a la otra página
+        event.preventDefault(); 
+        
+        alert("Please complete all fields: Origin, Destination and at least 1 Passenger.");
+        
+        // Opcional: marcar los bordes en rojo para indicar el error
+        if (origin === "") document.getElementById('from').style.borderColor = "red";
+        if (destination === "") document.getElementById('to').style.borderColor = "red";
+    }
+});
