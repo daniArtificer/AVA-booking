@@ -1,0 +1,97 @@
+div {
+    background-color: #6b7e7e;
+
+}
+
+.nro-fila {
+    padding-top: 25px;
+    text-align: center;
+    font-weight: bold;
+    color: #656d6e;;
+    font-size: 20px;
+}
+nav {
+    width: auto;
+    height: 200px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    padding: 20px;
+    background-color: #6b7e7e;
+}
+.cabina{
+    display: grid;
+    background-color: transparent;
+    grid-template-columns: repeat(3, 100px) 200px repeat(3, 100px); 
+    gap: 15px; 
+    justify-content: center;
+    padding: 50px;
+}
+.cabinavp {
+    display: grid;
+    background-color: transparent;
+    grid-template-columns:  repeat(2, 100px)  380px repeat(2, 100px); 
+    gap: 25px; 
+    justify-content: center;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.asientob {
+    position: relative; 
+    width: 80px;
+    height: 80px;
+    background-color: #056986;
+    border-radius: 30px;
+}
+
+.asientov {
+    position: relative; 
+    width: 80px;
+    height: 80px;
+    background-color: #c4c4ba;
+    border-radius: 25px;
+}
+
+.asientob.seleccionado, .asientov.seleccionado {
+    background-color: #07405d;
+    transition: 0.3s;
+}
+
+.varandal {
+    display: block;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px; 
+    height: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 20px solid #021c31;
+    border-left: 8px solid #021c31;
+    border-right: 8px solid #021c31;
+    background: transparent;
+}
+
+.pasillo {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 80px;
+    
+}
+
+.asiento-cabezales {
+    display: grid;
+    grid-template-columns: repeat(3, 100px) 175px repeat(3, 100px);
+    gap: 20px; 
+    box-sizing: border-box;
+    padding-top: 80px;
+    justify-content: center;
+    justify-items: center;
+    color: #a0aab4;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+
