@@ -29,12 +29,13 @@ for (let i = 0; i < numFilasVIP; i++) {
     vipContainer.appendChild(numDiv);
 
     for (let j = 0; j < 2; j++) vipContainer.appendChild(crearAsientov());
+
 }
 
 const standardContainer = document.getElementById('standard-container');
 
 const numFilas = 20;
-let numFilaS = 1;
+let numFilaS = 3;
 for (let f = 0; f < numFilas; f++) {
     for (let i = 0; i < 3; i++) standardContainer.appendChild(crearAsientob()); 
 
