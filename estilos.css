@@ -222,7 +222,7 @@ input:checked + label .content {
     display: flex;
     align-items: flex-start; /* Esto los alinea por la parte de arriba */
     gap: 35px;
-    width: 920px;
+    width: 900px;
 }
 
 /* El cuadro de las fechas estilo aerolínea */
@@ -268,7 +268,7 @@ input:checked + label .content {
 
 /* Ajuste general de los inputs de texto */
 .form-group input[type="text"] {
-    width: 500px;
+    width: 400px;
     height: 70px;
     margin-top: 20px;
     border: 1px solid #ccc;

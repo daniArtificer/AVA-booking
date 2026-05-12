@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <title>AVA principal</title>
+    <!-- Vinculación de la hoja de estilos externa -->
     <link rel="stylesheet" type="text/css" href="estilos.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+    <!-- Encabezado principal: Contiene la navegación y el mensaje de bienvenida -->
     <header class="fsection">
         <nav class="overlay">
             <img id="logo" src="logo2.jpg" alt="logo">
@@ -14,27 +16,34 @@
                 <h1>AVA</h1>
                 <h4 id="downt">Airline</h4>
             </section>
+            <!-- Enlace externo al repositorio del proyecto -->
             <a href="https://github.com/daniArtificer/AVA-booking.git" class="btn-contact">Contact us</a>
         </nav>
         <p id="slogan">Fly with us, <br> your best option</p>
+        <!-- Imagen de fondo del header -->
         <img id="nav" src="plane.jpg" alt="avion" class="background-img">
     </header>
 
     <main>
+        <!-- Contenedor principal del sistema de pestañas (Tabs) -->
         <section class="container">
+            <!-- Pestaña 1: Reserva de vuelo (Activada por defecto mediante 'checked') -->
             <input type="radio" name="options" id="tab1" checked> 
             <label for="tab1">
                 <div class="content">Booking a flight</div>
             </label>
 
+            <!-- Pestaña 2: Check-in (Solo visual en este fragmento) -->
             <input type="radio" name="options" id="tab2">
             <label for="tab2">
                 <div class="content">Check-in</div> 
             </label>
 
+            <!-- Contenido que se muestra según la pestaña seleccionada -->
             <article class="tab-content">
                 <div class="booking-data">
                     
+                    <!-- Selección del tipo de viaje: Ida y vuelta o Solo ida -->
                     <div id="trip-type">
                         <label class="radio-container">
                             <input id="return" type="radio" name="vuelo" value="Return" checked> 
@@ -46,11 +55,14 @@
                         </label>
                     </div>
 
+                    <!-- Fila de entradas: Origen y Fechas -->
                     <div class="row-inputs">
+                        <!-- Entrada de Origen con lista de sugerencias (datalist) -->
                         <div class="form-group origin-container">
                             <input type="text" id="from" name="origin" placeholder="From" list="countries-list" required>
                         </div>
 
+                        <!-- Selector de fechas: Salida y Regreso -->
                         <div class="dates-wrapper">
                             <div class="date-box">
                                 <label>Departure</label>
@@ -63,6 +75,7 @@
                         </div>
                     </div>
 
+                    <!-- Lista de países reutilizable para los inputs de origen y destino -->
                     <datalist id="countries-list">
                         <option value="Spain"></option>
                         <option value="United States"></option>
@@ -76,18 +89,23 @@
                         <option value="Japan"></option>
                     </datalist>
 
+                    <!-- Entrada de Destino -->
                     <div class="form-group">
                         <input type="text" id="to" name="destiny" placeholder="To" list="countries-list" required>
                     </div>
 
                     <div class="booking-row">
+                        <!-- Selector desplegable de pasajeros -->
                         <div class="passenger-selector">
+                            <!-- Truco de CSS: Usamos un checkbox oculto para controlar el despliegue del menú -->
                             <input type="checkbox" id="check-passengers" class="toggle-input">
                             <label for="check-passengers" id="passengers-text" class="passengers-trigger">
                                 Select Passengers <span class="arrow">▼</span>
                             </label>
 
+                            <!-- Menú desplegable con controles de cantidad -->
                             <div class="dropdown-box">
+                                <!-- Fila: Adultos -->
                                 <div class="passenger-row">
                                     <div class="label-group">
                                         <span class="main-label">Adults</span>
@@ -100,6 +118,7 @@
                                     </div>
                                 </div>
 
+                                <!-- Fila: Niños -->
                                 <div class="passenger-row">
                                     <div class="label-group">
                                         <span class="main-label">Children</span>
@@ -112,6 +131,7 @@
                                     </div>
                                 </div>
 
+                                <!-- Fila: Personas mayores -->
                                 <div class="passenger-row">
                                     <div class="label-group">
                                         <span class="main-label">Seniors</span>
@@ -124,12 +144,14 @@
                                     </div>
                                 </div>
                                 
+                                <!-- Botón para cerrar el dropdown (vinculado al checkbox oculto) -->
                                 <label for="check-passengers" class="btn-confirm" style="display:block; text-align:center; cursor:pointer;">
                                     Confirm
                                 </label>
                             </div>
                         </div> 
 
+                        <!-- Selección de clase del viaje -->
                         <div class="classes">
                             <label class="radio-container">Economic
                                 <input type="radio" name="travel-class" value="economic" checked>
@@ -142,6 +164,7 @@
                         </div>
                     </div>
 
+                    <!-- Botón final de búsqueda que redirige a la página de resultados -->
                     <div class="search">
                          <a href="http://127.0.0.1:3000/flights.html?vscode-livepreview=true" id="btn-search" class="btn-search">Search flights</a>
                     </div>
@@ -150,6 +173,7 @@
         </section>
     </main>
 
+    <!-- Archivo JavaScript para manejar la lógica de los botones +/- y la interactividad -->
     <script src="principal.js"></script>
 </body>
 </html>

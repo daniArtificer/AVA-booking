@@ -1,0 +1,58 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.flights-table {
+    width: 100%;
+    border-collapse: collapse; /* Elimina el espacio entre bordes */
+    background-color: white;
+    font-family: 'sans-serif';
+    text-align: left;
+}
+
+/* Estilo del encabezado */
+.flights-table thead tr {
+    background-color: #0a1040; /* El azul oscuro de tu logo */
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.flights-table th, 
+.flights-table td {
+    padding: 18px 25px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Filas alternas (Efecto Cebra) */
+.flights-table tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
+}
+
+/* Efecto hover al pasar el ratón */
+.flights-table tbody tr:hover {
+    background-color: #eef2ff;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo del botón "Select" */
+.btn-select {
+    background-color: #0a1040;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-select:hover {
+    background-color: #1a2a6c;
+    transform: scale(1.05);
+}
