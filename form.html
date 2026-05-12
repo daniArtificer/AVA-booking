@@ -6,15 +6,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="form.css">
 </head>
-<body>
+<body> 
     <nav>
     </nav>
     <header>
         <section>
-            <h2>Personal Details</h2>
+            <div class="accordion-item">
+            <div class="accordion-header">
+            <div class="accordion-info">
+            <span class="main-label">Adult</span>
+            <span class="sub-label"><h3>Add the passenger details</h3></span>
+            </div>
+            <div class="accordion-toggle">&#8250;</div>
+            </div>
+            <div class="accordion-panel">
+            <h2>Adult Passenger</h2>
             <br>
             <form id="formulario" action="#" method="POST">
-                <button id="submit" type="submit">submit</button>
                 <div>
                     <label>
                         First name
@@ -64,9 +72,11 @@
                         <input class="ask" type="radio" name="disability"/> yes
                     </div>
                 </div>
-
                 <br>
-            </form> 
+                <button id="submit" type="submit">submit</button>
+            </form>
+            </div>
+            </div>
         </section>
 
         <aside>
