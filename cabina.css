@@ -10,20 +10,9 @@ body {
     padding: 20px;
 }
 
-.header-avion {
-    text-align: center;
-    padding: 20px;
-    color: white;
-}
-
-.logo-avion {
-    width: 150px;
-    margin-bottom: 10px;
-}
-
 .contenedor-principal {
     display: flex;
-    justify-content: center; /* Centra el fuselaje en la pantalla [11, 12] */
+    justify-content: center;
     padding: 40px;
 }
 
@@ -36,38 +25,43 @@ body {
 }
 
 .mapa-layout {
-    display: flex; /* Alinea letras y zona de asientos de lado a lado */
+    display: flex;
     align-items: center;
+    gap: 20px;
 }
 
-/* Configuración de las letras A B C... */
 .asiento-cabezales {
     display: grid;
-    /* La cuadrícula debe coincidir con la de los asientos para alinear las filas */
-    grid-template-rows: repeat(3, 50px) 40px repeat(3, 50px);
-    gap: 10px;
-    margin-right: 20px;
+    grid-template-rows: repeat(3, 40px) 100px repeat(3, 40px);
+    gap: 5px;
     font-weight: bold;
     text-align: center;
 }
 
-/* CAMBIO IMPORTANTE: Alinea VIP y Económica horizontalmente */
+
 .seccion-asientos {
-    display: flex; 
-    gap: 15px; /* Espacio de separación entre la zona VIP y la Económica */
+    display: flex;
+    gap: 40px; 
 }
 
-/* Configuración interna de cada bloque de asientos */
-.cabina, .cabinavp {
+.cabina {
     display: grid;
-    /* Los asientos se llenan hacia abajo y luego saltan a la derecha [13, 14] */
     grid-auto-flow: column; 
     grid-template-rows: repeat(3, 50px) 40px repeat(3, 50px);
-    gap: 10px 15px; 
+    gap: 10px 15px;
     align-items: center;
 }
 
-/* Estilo de los asientos */
+.cabinavp {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 50px) 150px repeat(2, 50px);
+    gap: 10px 15px;
+    align-items: center;
+    border-right: 2px solid gray;
+    padding-right: 40px; 
+}
+
 .asientob, .asientov {
     width: 50px;
     height: 45px;
@@ -80,8 +74,8 @@ body {
 .asientob { border-color: #056986; background-color: transparent; }
 .asientov { border-color: #c4c4ba; background-color: transparent; }
 
-.asientob.seleccionado, .asientov.seleccionado {
-    background-color: #07405d;
+.seleccionado {
+    background-color: #07405d ;
 }
 
 .exit-label {
