@@ -60,3 +60,103 @@ function actualizarCajaPrincipal() {
 
     document.getElementById('passengers-text').innerHTML = textoResumen + ' ▼';
 }
+
+document.querySelector('.btn-search').addEventListener('click', function(event) {
+    const origin = document.getElementById('from').value.trim();
+    const destination = document.getElementById('to').value.trim();
+    const adults = parseInt(document.getElementById('num-adults').innerHTML);
+    const ninos = parseInt(document.getElementById('num-children').innerHTML);
+    const seniors = parseInt(document.getElementById('num-seniors').innerHTML);
+
+    const totalPassengers = adults + ninos + seniors;
+
+    // Validación
+    if (origin === "" || destination === "" || totalPassengers === 0) {
+        // Evita que el enlace te lleve a la otra página
+        event.preventDefault(); 
+        
+        alert("Please complete all fields: Origin, Destination and at least 1 Passenger.");
+        
+        // Opcional: marcar los bordes en rojo para indicar el error
+        if (origin === "") document.getElementById('from').style.borderColor = "red";
+        if (destination === "") document.getElementById('to').style.borderColor = "red";
+    }
+});
+
+const btnSearch = document.getElementById('btn-search');
+
+btnSearch.addEventListener('click', function(e) {
+    // 1. Get current quantities from the HTML and convert them to numbers [5, 6]
+    const adults = parseInt(document.getElementById('num-adults').innerHTML);
+    const seniors = parseInt(document.getElementById('num-seniors').innerHTML);
+    const children = parseInt(document.getElementById('num-children').innerHTML);
+
+    if (children > 0 && adults === 0 && seniors === 0) {
+        
+        e.preventDefault(); 
+        alert("Booking error: Children are not allowed to travel without an adult or senior companion.");
+    }
+});
+
+const radioVuelos = document.getElementsByName('vuelo');
+const cajaReturn = document.getElementById('return-date').parentElement; // Selecciona el contenedor del input
+
+function date() {
+    let valorSeleccionado = "";
+    radioVuelos.forEach(radio => {
+        if (radio.checked) valorSeleccionado = radio.value;
+    });
+  
+    if (valorSeleccionado === 'Return') {
+        cajaReturn.style.display = 'block';
+    } else {
+        cajaReturn.style.display = 'none';
+    }
+}
+radioVuelos.forEach(radio => {
+    radio.addEventListener('change', date);
+});
+date();
+
+const form = document.querySelector('.search-form');
+
+form.addEventListener('submit', function(event){
+    // Obtén los valores deseados
+    const origin = document.getElementById('from').value.trim();
+    const destination = document.getElementById('to').value.trim();
+
+    localStorage.setItem('ultimaBusquedaOrigin', origin);
+    localStorage.setItem('ultimaBusquedaDestiny', destination);
+
+});
+
+
+window.addEventListener("DOMContentLoaded", function() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const minDate = `${yyyy}-${mm}-${dd}`;
+
+    document.getElementById('departure-date').setAttribute('min', minDate);
+});
+
+document.getElementById('departure-date').addEventListener('change', function() {
+    const departureDate = this.value;
+    const returnDateInput = document.getElementById('return-date');
+    returnDateInput.setAttribute('min', departureDate);
+
+    if (returnDateInput.value && returnDateInput.value < departureDate) {
+        returnDateInput.value = '';
+    }
+});
+
+window.addEventListener("DOMContentLoaded", function() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const minDate = `${yyyy}-${mm}-${dd}`;
+
+    document.getElementById('departure-date').setAttribute('min', minDate);
+});
