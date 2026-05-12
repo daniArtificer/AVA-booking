@@ -233,7 +233,7 @@ input:checked + label .content {
     border: 1px solid #ccc;
     border-radius: 6px;
     height: 70px;
-    margin-top: 35px;
+    margin-top: 60px;
     overflow: hidden;
 }
 
