@@ -56,43 +56,45 @@
                     </div>
 
                     <!-- Fila de entradas: Origen y Fechas -->
-                    <div class="row-inputs">
-                        <!-- Entrada de Origen con lista de sugerencias (datalist) -->
-                        <div class="form-group origin-container">
-                            <input type="text" id="from" name="origin" placeholder="From" list="countries-list" required>
-                        </div>
+                    <form action="flights.html" method="GET" class="search-form">
+    
+    <div class="row-inputs">
+        <div class="form-group origin-container">
+            <label for="from">Origin</label>
+            <input type="text" id="from" name="origin" placeholder="From" list="countries-list" required>
+        </div>
 
-                        <!-- Selector de fechas: Salida y Regreso -->
-                        <div class="dates-wrapper">
-                            <div class="date-box">
-                                <label>Departure</label>
-                                <input type="date" id="departure-date">
-                            </div>
-                            <div class="date-box">
-                                <label>Return</label>
-                                <input type="date" id="return-date">
-                            </div>
-                        </div>
-                    </div>
+        <div class="dates-wrapper">
+            <div class="date-box">
+                <label for="departure-date">Departure</label>
+                <input type="date" id="departure-date" name="departure_date" required>
+            </div>
+            <div class="date-box">
+                <label for="return-date">Return</label>
+                <input type="date" id="return-date" name="return_date">
+            </div>
+        </div>
+    </div>
 
-                    <!-- Lista de países reutilizable para los inputs de origen y destino -->
-                    <datalist id="countries-list">
-                        <option value="Spain"></option>
-                        <option value="United States"></option>
-                        <option value="United Kingdom"></option>
-                        <option value="France"></option>
-                        <option value="China"></option>
-                        <option value="Germany"></option>
-                        <option value="Italy"></option>
-                        <option value="Mexico"></option>
-                        <option value="Argentina"></option>
-                        <option value="Japan"></option>
-                    </datalist>
+    <datalist id="countries-list">
+        <option value="Spain"></option>
+        <option value="United States"></option>
+        <option value="United Kingdom"></option>
+        <option value="France"></option>
+        <option value="China"></option>
+        <option value="Germany"></option>
+        <option value="Italy"></option>
+        <option value="Mexico"></option>
+        <option value="Argentina"></option>
+        <option value="Japan"></option>
+    </datalist>
 
-                    <!-- Entrada de Destino -->
-                    <div class="form-group">
-                        <input type="text" id="to" name="destiny" placeholder="To" list="countries-list" required>
-                    </div>
+    <div class="form-group">
+        <label for="to">Destination</label>
+        <input type="text" id="to" name="destiny" placeholder="To" list="countries-list" required>
+    </div>
+
+</form>
 
                     <div class="booking-row">
                         <!-- Selector desplegable de pasajeros -->
