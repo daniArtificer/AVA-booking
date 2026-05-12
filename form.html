@@ -3,16 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="form.css">
-    <title>formulario</title>
 </head>
 <body>
     <nav>
     </nav>
     <header>
-        <input type="text" name="name" placeholder="name" required>
-        <input type="text" name="last-name" placeholder="last name" required>
-        <input type="email" name="correo" placeholder="email" required>
+        <section>
+            <h2>Personal Details</h2>
+            <br>
+            <form id="formulario" action="#" method="POST">
+                <button id="submit" type="submit">submit</button>
+                <div>
+                    <label>
+                        First name
+                        <input type="text" name="name" required>
+                    </label>
+                    <label>
+                        Last name
+                        <input type="text" name="last" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Email
+                        <input type="text" name="email" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Passport
+                        <input type="text" name="passport" required>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        Date of Birth
+                        <input id="calendary" type="date" name="birth" required>
+                    </label>
+                </div>
+
+                <select id="Gender" name="gender"> 
+                    <option value="opcion1" selected>Female</option>
+                    <option value="opcion2">Male</option>
+                    <option value="opcion3">None</option>
+                </select>
+
+                <div>
+                    <div id="Pregnancy">
+                        <p>Are you Pregnant?</p>
+                        <input class="ask" type="radio" name="sexo" value="Male" checked="checked" /> no<br/>
+                        <input class="ask" type="radio" name="sexo" value="Female"/> yes
+                    </div>
+                </div>
+                <div>
+                    <div id="disability">
+                        <p>Do you have any disabilities?</p>
+                        <input class="ask" type="radio" name="disability" checked="checked" /> no<br/>
+                        <input class="ask" type="radio" name="disability"/> yes
+                    </div>
+                </div>
+
+                <br>
+            </form> 
+        </section>
+
+        <aside>
+            <article>
+                <button id="ticket">select fare</button>
+            </article>
+        </aside>
     </header>
+    <script src="form.js"></script>
 </body>
+</html>
 </html>
