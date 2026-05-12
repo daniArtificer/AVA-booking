@@ -97,3 +97,23 @@ btnSearch.addEventListener('click', function(e) {
         alert("Booking error: Children are not allowed to travel without an adult or senior companion.");
     }
 });
+
+const radioVuelos = document.getElementsByName('vuelo');
+const cajaReturn = document.getElementById('return-date').parentElement; // Selecciona el contenedor del input
+
+function date() {
+    let valorSeleccionado = "";
+    radioVuelos.forEach(radio => {
+        if (radio.checked) valorSeleccionado = radio.value;
+    });
+  
+    if (valorSeleccionado === 'Return') {
+        cajaReturn.style.display = 'block';
+    } else {
+        cajaReturn.style.display = 'none';
+    }
+}
+radioVuelos.forEach(radio => {
+    radio.addEventListener('change', date);
+});
+date();

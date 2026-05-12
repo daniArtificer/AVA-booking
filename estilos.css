@@ -222,7 +222,7 @@ input:checked + label .content {
     display: flex;
     align-items: flex-start; /* Esto los alinea por la parte de arriba */
     gap: 35px;
-    width: 850px;
+    width: 920px;
 }
 
 /* El cuadro de las fechas estilo aerolínea */
@@ -257,8 +257,13 @@ input:checked + label .content {
     font-size: 18px;
     outline: none;
     cursor: pointer;
-    width: 100px;
+    width: 150px;
     color: #333;
+}
+
+#return-date.display{
+    display:block;
+
 }
 
 /* Ajuste general de los inputs de texto */
@@ -270,22 +275,6 @@ input:checked + label .content {
     border-radius: 6px;
     box-sizing: border-box;
 }
-.radio-container {
-    flex-direction: row;
-    display: inline-block;
-    margin-right: 25px; 
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    user-select: none;
-}
-.radio-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
 .checkmark {    
     position: absolute;
     top: 0;
@@ -294,28 +283,6 @@ input:checked + label .content {
     width: 25px;
     background-color: #eee;
     border-radius: 50px;
-}
-.radio-container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-.radio-container input:checked ~ .checkmark {
-    background-color: #03182a;
-}
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-.radio-container input:checked ~ .checkmark:after {
-    display: block;
-}
-.radio-container .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50px;
-    background: white;
 }
 .form-group {
     padding-top: 17px;
@@ -420,6 +387,40 @@ input[type="text"] {
     position: absolute;
     opacity: 0;
     cursor: pointer;
+}
+.radio-container {
+    flex-direction: row;
+    display: inline-block;
+    margin-right: 25px; 
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.radio-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+.radio-container input:checked ~ .checkmark {
+    background-color: #03182a;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+}
+.radio-container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    background: white;
 }
 .search {
     display: flex;

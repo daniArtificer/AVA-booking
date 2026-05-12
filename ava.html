@@ -14,7 +14,7 @@
                 <h1>AVA</h1>
                 <h4 id="downt">Airline</h4>
             </section>
-            <a href="contacto.html" class="btn-contact">Contact us</a>
+            <a href="https://github.com/daniArtificer/AVA-booking.git" class="btn-contact">Contact us</a>
         </nav>
         <p id="slogan">Fly with us, <br> your best option</p>
         <img id="nav" src="plane.jpg" alt="avion" class="background-img">
@@ -35,13 +35,13 @@
             <article class="tab-content">
                 <div class="booking-data">
                     
-                    <div class="trip-type">
+                    <div id="trip-type">
                         <label class="radio-container">
-                            <input type="radio" name="vuelo" value="Return" checked> 
+                            <input id="return" type="radio" name="vuelo" value="Return" checked> 
                             <span class="checkmark"></span> Return
                         </label>
                         <label class="radio-container">
-                            <input type="radio" name="vuelo" value="One way"> 
+                            <input id="destination" type="radio" name="vuelo" value="One way"> 
                             <span class="checkmark"></span> One way
                         </label>
                     </div>
@@ -54,14 +54,14 @@
                         <div class="dates-wrapper">
                             <div class="date-box">
                                 <label>Departure</label>
-                                <input type="date" id="departure-date"> 
-                                </div>
+                                <input type="date" id="departure-date">
+                            </div>
                             <div class="date-box">
                                 <label>Return</label>
                                 <input type="date" id="return-date">
                             </div>
+                            </div>
                         </div>
-                    </div>
 
                     <datalist id="countries-list">
                         <option value="Spain"></option>
