@@ -50,9 +50,16 @@ h1{
     padding: 0;
     text-align: left;
     font-family:"sans-serif";
+    color: white;
     font-weight: bold;
     margin: 0;
     margin-top: 20px;
+}
+h4{
+    text-align: left;
+    font-family:"sans-serif";
+    color: white;
+    font-weight: normal;
 }
 #slogan{
     bottom: -150px;
@@ -63,6 +70,7 @@ h1{
     font-family: "sans-serif";
     font-weight: normal; 
     z-index: 3;
+    color: white;
 }
 #downt{
     margin-top: -5px; 
@@ -84,6 +92,44 @@ h1{
     top: 0;
     left: 0;
 }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;          
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 40px;
+    gap: 15px;
+    z-index: 3;
+    height: 100px;
+    box-sizing: border-box; /* Corregido de padding-box */
+    background: transparent;
+}
+
+.btn-contact {
+    margin-left: auto; 
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    color: white;
+    text-decoration: none;
+    font-family: "sans-serif";
+    font-weight: bold;
+    border: 2px solid white;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.btn-contact:hover {
+    background-color: white;
+    color: #0d1049;
+    transform: scale(1.05);
+}
+
 main{
     background-color: rgba(0, 0, 0, 0.724);
     position: relative;
@@ -172,21 +218,62 @@ input:checked + label .content {
     z-index: 10; 
     
 }
-.radio-container {
-    flex-direction: row;
-    display: inline-block;
-    margin-right: 25px; 
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    user-select: none;
+.row-inputs { 
+    display: flex;
+    align-items: flex-start; /* Esto los alinea por la parte de arriba */
+    gap: 35px;
+    width: 900px;
 }
-.radio-container input {
-    position: absolute;
-    opacity: 0;
+
+/* El cuadro de las fechas estilo aerolínea */
+.dates-wrapper {
+    flex: 1;
+    display: flex;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: 70px;
+    margin-top: 60px;
+    overflow: hidden;
+}
+
+.date-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-right: 1px solid #ddd;
+}
+
+.date-box label {
+    font-size: 18px;
+    color: #666;
+}
+
+.date-box input {
+    display: block;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    outline: none;
     cursor: pointer;
+    width: 150px;
+    color: #333;
+}
+
+#return-date.display{
+    display:block;
+
+}
+
+/* Ajuste general de los inputs de texto */
+.form-group input[type="text"] {
+    width: 400px;
+    height: 70px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 .checkmark {    
     position: absolute;
@@ -197,30 +284,9 @@ input:checked + label .content {
     background-color: #eee;
     border-radius: 50px;
 }
-.radio-container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-.radio-container input:checked ~ .checkmark {
-    background-color: #03182a;
-}
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-.radio-container input:checked ~ .checkmark:after {
-    display: block;
-}
-.radio-container .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50px;
-    background: white;
-}
 .form-group {
-    margin-bottom: 25px;
+    padding-top: 17px;
+    margin-bottom: 10px;
     font-size: 22px;
 }
 
@@ -240,7 +306,6 @@ input[type="text"] {
 .toggle-input {
     display: none;
 }
-
 .dropdown-box {
     display: none; 
     position: absolute;
@@ -253,13 +318,10 @@ input[type="text"] {
     z-index: 10; 
     font-size: 25px;
 }
-
-/* 2. LÓGICA DE ACTIVACIÓN: El selector ~ busca al hermano .dropdown-box [1, 2] */
 .toggle-input:checked ~ .dropdown-box {
-    display: block; /* Se activa solo cuando el checkbox está marcado */
+    display: block; 
 }
 
-/* Estilo para el botón disparador */
 .passengers-trigger {
     display: block;
     padding: 12px 20px;
@@ -270,7 +332,7 @@ input[type="text"] {
     font-size: 22px;
     width: 230px;
     font-family: sans-serif;
-}
+} 
 
 .passenger-row {
     display: flex;
@@ -288,4 +350,116 @@ input[type="text"] {
     border-radius: 10px;
     cursor: pointer;
     font-size: 22px;
+}
+.booking-row {
+    display: flex;         
+    gap: 30px;             
+    align-items: center;  
+    margin-top: 30px;
+}
+
+/* Contenedor específico para los radios de clase */
+.class-radio-group {
+    width: 400px;       
+    display: flex;         /* Pone Economic y Business uno al lado del otro */
+    gap: 20px;             /* Espacio entre las dos opciones de clase */
+    background: rgba(159, 157, 157, 0.1); /* Opcional: un fondo suave para resaltar */
+    padding: 10px 20px;
+    border-radius: 10px;
+    height: 55px;          /* Sincronizamos altura con el selector de pasajeros [Historial] */
+    box-sizing: border-box; /* Incluye el padding en el tamaño total [8, 9] */
+    align-items: center;
+}
+
+/* Reutilizamos los estilos de radio-container y checkmark que ya tienes */
+.radio-container { 
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 22px;      
+    user-select: none;
+    font-family: sans-serif;
+}
+
+/* Ocultar el radio original del navegador [10] */
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.radio-container {
+    flex-direction: row;
+    display: inline-block;
+    margin-right: 25px; 
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.radio-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+.radio-container input:checked ~ .checkmark {
+    background-color: #03182a;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+}
+.radio-container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    background: white;
+}
+.search {
+    display: flex;
+    justify-content: flex-end; /* Lo alinea a la derecha */
+    margin-top: 30px;
+    width: 890px;
+}
+
+.btn-search {
+    padding: 15px 40px;
+    background-color: #0a1040; /* El color guinda de tu proyecto */
+    color: white;
+    text-decoration: none;
+    font-family: "sans-serif";
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(21, 13, 65, 0.3);
+}
+
+.btn-search:hover {
+    background-color: #0d1b3d; /* Un guinda más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de levante */
+    box-shadow: 0 6px 20px rgba(17, 32, 83, 0.4);
+}
+
+.btn-search:active {
+    transform: translateY(0);
+}
+.input-error {
+    border: 2px solid #b35a5a !important;
+    background-color: #fffafa;
+}
+
+.error-text {
+    color: #b35a5a;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none; /* Se muestra con JS */
 }
