@@ -117,3 +117,18 @@ radioVuelos.forEach(radio => {
     radio.addEventListener('change', date);
 });
 date();
+
+const form = document.querySelector('.search-form');
+
+form.addEventListener('submit', function(event){
+    // Obtén los valores deseados
+    const origin = document.getElementById('from').value.trim();
+    const destination = document.getElementById('to').value.trim();
+
+    // Guarda en localStorage
+    localStorage.setItem('ultimaBusquedaOrigin', origin);
+    localStorage.setItem('ultimaBusquedaDestiny', destination);
+
+    // Puedes guardar más campos si quieres (pasajeros, etc)
+    // El form igual se enviará normalmente
+});
