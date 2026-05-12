@@ -218,6 +218,58 @@ input:checked + label .content {
     z-index: 10; 
     
 }
+.row-inputs { 
+    display: flex;
+    align-items: flex-start; /* Esto los alinea por la parte de arriba */
+    gap: 35px;
+    width: 850px;
+}
+
+/* El cuadro de las fechas estilo aerolínea */
+.dates-wrapper {
+    flex: 1;
+    display: flex;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: 70px;
+    margin-top: 35px;
+    overflow: hidden;
+}
+
+.date-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    border-right: 1px solid #ddd;
+}
+
+.date-box label {
+    font-size: 18px;
+    color: #666;
+}
+
+.date-box input {
+    display: block;
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+    width: 100px;
+    color: #333;
+}
+
+/* Ajuste general de los inputs de texto */
+.form-group input[type="text"] {
+    width: 500px;
+    height: 70px;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
 .radio-container {
     flex-direction: row;
     display: inline-block;
@@ -266,7 +318,8 @@ input:checked + label .content {
     background: white;
 }
 .form-group {
-    margin-bottom: 25px;
+    padding-top: 17px;
+    margin-bottom: 10px;
     font-size: 22px;
 }
 
@@ -286,7 +339,6 @@ input[type="text"] {
 .toggle-input {
     display: none;
 }
-
 .dropdown-box {
     display: none; 
     position: absolute;
@@ -299,8 +351,6 @@ input[type="text"] {
     z-index: 10; 
     font-size: 25px;
 }
-
-
 .toggle-input:checked ~ .dropdown-box {
     display: block; 
 }
@@ -371,7 +421,7 @@ input[type="text"] {
     opacity: 0;
     cursor: pointer;
 }
-.search-container {
+.search {
     display: flex;
     justify-content: flex-end; /* Lo alinea a la derecha */
     margin-top: 30px;

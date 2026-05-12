@@ -82,3 +82,18 @@ document.querySelector('.btn-search').addEventListener('click', function(event) 
         if (destination === "") document.getElementById('to').style.borderColor = "red";
     }
 });
+
+const btnSearch = document.getElementById('btn-search');
+
+btnSearch.addEventListener('click', function(e) {
+    // 1. Get current quantities from the HTML and convert them to numbers [5, 6]
+    const adults = parseInt(document.getElementById('num-adults').innerHTML);
+    const seniors = parseInt(document.getElementById('num-seniors').innerHTML);
+    const children = parseInt(document.getElementById('num-children').innerHTML);
+
+    if (children > 0 && adults === 0 && seniors === 0) {
+        
+        e.preventDefault(); 
+        alert("Booking error: Children are not allowed to travel without an adult or senior companion.");
+    }
+});

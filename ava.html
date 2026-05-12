@@ -35,25 +35,49 @@
             <article class="tab-content">
                 <div class="booking-data">
                     
-                    <label class="radio-container">
-                        <input type="radio" name="vuelo" value="Return" checked> 
-                        <span class="checkmark"></span>
-                        Return
-                    </label>
-                    <label class="radio-container">
-                        <input type="radio" name="vuelo" value="One way"> 
-                        <span class="checkmark"></span>
-                        One way
-                    </label>
-
-                    <div class="form-group">
-                        <label for="from">Origin:</label>
-                        <input type="text" id="from" name="origin" placeholder="City or Airport" required>
+                    <div class="trip-type">
+                        <label class="radio-container">
+                            <input type="radio" name="vuelo" value="Return" checked> 
+                            <span class="checkmark"></span> Return
+                        </label>
+                        <label class="radio-container">
+                            <input type="radio" name="vuelo" value="One way"> 
+                            <span class="checkmark"></span> One way
+                        </label>
                     </div>
 
+                    <div class="row-inputs">
+                        <div class="form-group origin-container">
+                            <input type="text" id="from" name="origin" placeholder="From" list="countries-list" required>
+                        </div>
+
+                        <div class="dates-wrapper">
+                            <div class="date-box">
+                                <label>Departure</label>
+                                <input type="date" id="departure-date"> 
+                                </div>
+                            <div class="date-box">
+                                <label>Return</label>
+                                <input type="date" id="return-date">
+                            </div>
+                        </div>
+                    </div>
+
+                    <datalist id="countries-list">
+                        <option value="Spain"></option>
+                        <option value="United States"></option>
+                        <option value="United Kingdom"></option>
+                        <option value="France"></option>
+                        <option value="China"></option>
+                        <option value="Germany"></option>
+                        <option value="Italy"></option>
+                        <option value="Mexico"></option>
+                        <option value="Argentina"></option>
+                        <option value="Japan"></option>
+                    </datalist>
+
                     <div class="form-group">
-                        <label for="to">Destination:</label>
-                        <input type="text" id="to" name="destination" placeholder="City or Airport" required>
+                        <input type="text" id="to" name="destiny" placeholder="To" list="countries-list" required>
                     </div>
 
                     <div class="booking-row">
@@ -105,24 +129,25 @@
                                 </label>
                             </div>
                         </div> 
-                         <div class="class-radio-group">
-        <label class="radio-container">Economic
-            <input type="radio" name="travel-class" value="economic" checked>
-            <span class="checkmark"></span>
-        </label>
-        <label class="radio-container">Turist
-            <input type="radio" name="travel-class" value="turist">
-            <span class="checkmark"></span>
-        </label>
-    </div>
-</div>
-<div class="search-container">
-                <a href="vuelos.html" class="btn-search">Search flights</a>
-            </div>
-                    </div> </article>
+
+                        <div class="classes">
+                            <label class="radio-container">Economic
+                                <input type="radio" name="travel-class" value="economic" checked>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container">Turist
+                                <input type="radio" name="travel-class" value="turist">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="search">
+                         <a href="vuelos.html" id="btn-search" class="btn-search">Search flights</a>
+                    </div>
+                </div> 
+            </article>
         </section>
     </main>
-
     <script src="principal.js"></script>
 </body>
 </html>
