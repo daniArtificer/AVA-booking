@@ -1,98 +1,92 @@
-div {
-    background-color: #6b7e7e;
-
-}
-
-.nro-fila {
-    padding-top: 25px;
-    text-align: center;
-    font-weight: bold;
-    color: #1b2729;;
-    font-size: 20px;
-}
-nav {
-    width: auto;
-    height: 200px;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    padding: 20px;
-    background-color: #6b7e7e;
-}
-.cabina{
-    display: grid;
-    background-color: transparent;
-    grid-template-columns: repeat(3, 100px) 200px repeat(3, 100px); 
-    gap: 15px; 
-    justify-content: center;
-    padding: 50px;
-}
-.cabinavp {
-    display: grid;
-    background-color: transparent;
-    grid-template-columns:  repeat(2, 100px)  380px repeat(2, 100px); 
-    gap: 25px; 
-    justify-content: center;
-    padding: 50px;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-.asientob {
-    position: relative; 
-    width: 80px;
-    height: 80px;
-    background-color: #056986;
-    border-radius: 30px;
+body {
+    background-color: #6b7e7e;
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
 
-.asientov {
-    position: relative; 
-    width: 80px;
-    height: 80px;
-    background-color: #c4c4ba;
-    border-radius: 25px;
+.header-avion {
+    text-align: center;
+    padding: 20px;
+    color: white;
 }
+
+.logo-avion {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.contenedor-principal {
+    display: flex;
+    justify-content: center; /* Centra el fuselaje en la pantalla [11, 12] */
+    padding: 40px;
+}
+
+.fuselaje-blanco {
+    background-color: white;
+    border-radius: 60px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    display: inline-block;
+}
+
+.mapa-layout {
+    display: flex; /* Alinea letras y zona de asientos de lado a lado */
+    align-items: center;
+}
+
+/* Configuración de las letras A B C... */
+.asiento-cabezales {
+    display: grid;
+    /* La cuadrícula debe coincidir con la de los asientos para alinear las filas */
+    grid-template-rows: repeat(3, 50px) 40px repeat(3, 50px);
+    gap: 10px;
+    margin-right: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* CAMBIO IMPORTANTE: Alinea VIP y Económica horizontalmente */
+.seccion-asientos {
+    display: flex; 
+    gap: 15px; /* Espacio de separación entre la zona VIP y la Económica */
+}
+
+/* Configuración interna de cada bloque de asientos */
+.cabina, .cabinavp {
+    display: grid;
+    /* Los asientos se llenan hacia abajo y luego saltan a la derecha [13, 14] */
+    grid-auto-flow: column; 
+    grid-template-rows: repeat(3, 50px) 40px repeat(3, 50px);
+    gap: 10px 15px; 
+    align-items: center;
+}
+
+/* Estilo de los asientos */
+.asientob, .asientov {
+    width: 50px;
+    height: 45px;
+    border: 5px solid;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.asientob { border-color: #056986; background-color: transparent; }
+.asientov { border-color: #c4c4ba; background-color: transparent; }
 
 .asientob.seleccionado, .asientov.seleccionado {
     background-color: #07405d;
-    transition: 0.3s;
 }
 
-.varandal {
-    display: block;
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    bottom: 0px; 
-    height: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border-bottom: 20px solid #021c31;
-    border-left: 8px solid #021c31;
-    border-right: 8px solid #021c31;
-    background: transparent;
-}
-
-.pasillo {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    width: 80px;
-    
-}
-
-.asiento-cabezales {
-    display: grid;
-    grid-template-columns: repeat(3, 100px) 175px repeat(3, 100px);
-    gap: 20px; 
-    box-sizing: border-box;
-    padding-top: 80px;
-    justify-content: center;
-    justify-items: center;
-    color: #151f29;
-    font-size: 25px;
-    font-weight: normal;
-}
-.exit{
-    margin-bottom: 60px;
+.exit-label {
+    text-align: center;
+    color: #d9534f;
+    margin-top: 20px;
+    letter-spacing: 5px;
 }

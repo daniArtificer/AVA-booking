@@ -1,12 +1,7 @@
-function crearAsientob() {
+function crearAsientob() { 
 
     const asiento1 = document.createElement('div');
     asiento1.className = 'asientob';
-
-    const varandal = document.createElement('main');
-    varandal.className = 'varandal';
-
-    asiento1.appendChild(varandal);
     asiento1.addEventListener('click', function() {
         this.classList.toggle('seleccionado');
     });
@@ -15,11 +10,6 @@ function crearAsientob() {
 function crearAsientov() {
     const asiento2 = document.createElement('div');
     asiento2.className = 'asientov';
-
-    const varandal = document.createElement('main');
-    varandal.className = 'varandal';
-
-    asiento2.appendChild(varandal);
     asiento2.addEventListener('click', function() {
         this.classList.toggle('seleccionado');
     });
@@ -43,7 +33,7 @@ for (let i = 0; i < numFilasVIP; i++) {
 
 const standardContainer = document.getElementById('standard-container');
 
-const numFilas = 22;
+const numFilas = 20;
 let numFilaS = 1;
 for (let f = 0; f < numFilas; f++) {
     for (let i = 0; i < 3; i++) standardContainer.appendChild(crearAsientob()); 

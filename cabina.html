@@ -1,25 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es"> 
 <head>
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <title>Selección de Asientos - Horizontal</title>
     <link rel="stylesheet" href="cabina.css">
 </head>
 <body>
-    <nav class="asiento-cabezales">
-        <div>A</div>
-        <div>B</div>
-        <div>C</div>
-        <div></div>
-        <div>D</div>
-        <div>E</div>
-        <div>F</div>
-    </nav>
-    <div>
-        <main id="vip" class="cabinavp"></main>
-        <main id="standard-container" class="cabina"></main>
-        <div id="standard-container" class="cabinaf"></div>
-        <div class="exit"><h3>Exit∫</h3></div>
-        <script src="cabina.js"></script>
+
+    <header class="header-avion">
+        <img src="plane.jpg" alt="Logo Aerolínea" class="logo-avion">
+    </header>
+
+    <div class="contenedor-principal">
+        <div class="fuselaje-blanco">
+            
+            <div class="mapa-layout">
+                <aside class="asiento-cabezales">
+                    <div>A</div>
+                    <div>B</div>
+                    <div>C</div>
+                    <div class="nro-fila-espacio"></div> <div>D</div>
+                    <div>E</div>
+                    <div>F</div>
+                </aside>
+
+                <section class="seccion-asientos">
+                    <div id="vip" class="cabinavp"></div>
+                    <div id="standard-container" class="cabina"></div>
+                </section>
+            </div>
+
+            <div class="exit-label"><h3>EXIT</h3></div>
+        </div>
     </div>
+
+    <script src="cabina.js"></script>
 </body>
 </html>
