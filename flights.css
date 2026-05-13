@@ -1,3 +1,10 @@
+.h2{
+    font-family: sans-serif;
+    color: #0a1040; 
+    text-align: center; 
+    margin-bottom: 20px;
+}
+
 .table-container {
     width: 100%;
     overflow-x: auto;
@@ -40,19 +47,44 @@
     transition: background-color 0.3s ease;
 }
 
-/* Estilo del botón "Select" */
 .btn-select {
-    background-color: #0a1040;
+    background-color: #0a1040; /* Color azul de tu encabezado */
     color: white;
-    padding: 8px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.2s, background-color 0.2s;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;    /* ESTO QUITA LA RAYA INFERIOR */
+    display: inline-block;
+    transition: background 0.3s;
 }
 
 .btn-select:hover {
-    background-color: #1a2a6c;
-    transform: scale(1.05);
+    background-color: #1a237e;
+    text-decoration: none;    /* Asegura que no aparezca al pasar el mouse */
 }
+/* Estilos para las etiquetas de estado */
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Estado: Normal */
+.status-badge.normal {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* Estado: En abordaje (On Boarding) */
+.status-badge.on-boarding {
+    background-color: #fff3e0;
+    color: #ef6c00;
+}
+
+/* Estado: Antes de abordar (Pre-boarding) */
+.status-badge.pre-boarding {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
