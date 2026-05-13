@@ -154,4 +154,104 @@ article{
     cursor: pointer;
     float: right;
 }
+/* Estados adicionales */
+.status-badge.delayed {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* Botón de selección deshabilitado */
+.btn-select.disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+    pointer-events: auto; /* Permitir el clic para mostrar el alert */
+}
+
+.btn-select.disabled:hover {
+    background-color: #9e9e9e;
+}
+/* Contenedor para centrar el botón */
+.submit-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 0;
+    background-color: white; /* Para que contraste con el fondo */
+}
+
+/* Diseño moderno del botón */
+.btn-submit {
+    background: linear-gradient(135deg, #22264d 0%, #32397a 100%);
+    color: white;
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px 45px;
+    border: 2px solid transparent;
+    border-radius: 50px; /* Forma de cápsula */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(34, 38, 77, 0.2);
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.btn-submit:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: #f4c542; /* Cambia a dorado */
+    color: #22264d;
+    box-shadow: 0 15px 30px rgba(244, 197, 66, 0.4);
+    border: 2px solid #22264d;
+}
+
+/* Efecto al hacer click */
+.btn-submit:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+/* Contenedor del botón */
+.submit-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    clear: both;
+}
+
+/* Estilo del botón de confirmación */
+.btn-submit {
+    /* Fondo y Color */
+    background: linear-gradient(135deg, #22264d 0%, #32397a 100%);
+    color: white;
+    
+    /* Tipografía */
+    font-family: "Arial", sans-serif;
+    font-size: 16px;          /* Tamaño equilibrado */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;      /* Mejora la legibilidad */
+    white-space: nowrap;      /* Evita que el texto se salga o se parta */
+    
+    /* Espaciado y Dimensiones */
+    padding: 14px 32px;       /* Ajustado para que no sea excesivo */
+    border: 2px solid #f4c542; 
+    border-radius: 50px;      /* Forma de cápsula perfecta */
+    
+    /* Interactividad */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    
+    /* Reset por si acaso */
+    display: inline-block;
+    line-height: 1;           /* Centra verticalmente el texto */
+}
+
+/* Efecto Hover para que sea más dinámico */
+.btn-submit:hover {
+    background: #f4c542;
+    color: #22264d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(244, 197, 66, 0.4);
+}
 
