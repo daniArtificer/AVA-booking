@@ -1,4 +1,3 @@
-// Limpiamos la función duplicada y dejamos una sola versión mejorada
 function cambiarCantidad(tipo, cambio) {
     const elemento = document.getElementById('num-' + tipo);
     let cantidad = parseInt(elemento.innerHTML);
@@ -41,6 +40,16 @@ function actualizarCajaPrincipal() {
     document.getElementById('passengers-text').innerHTML = textoResumen + ' ▼';
 }
 
+// ===== GENERAR BOOKING ID =====
+function generateBookingId() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let id = 'AVA-';
+    for (let i = 0; i < 6; i++) {
+        id += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return id;
+}
+
 const btnSearch = document.getElementById('btn-search');
 
 btnSearch.addEventListener('click', function(e) {
@@ -57,7 +66,7 @@ btnSearch.addEventListener('click', function(e) {
         alert("Please complete all fields: Origin, Destination and at least 1 Passenger.");
         if (origin === "") document.getElementById('from').style.borderColor = "red";
         if (destination === "") document.getElementById('to').style.borderColor = "red";
-        return; // Detiene la ejecución si hay error
+        return;
     }
 
     // Validación de menores no acompañados
@@ -67,12 +76,33 @@ btnSearch.addEventListener('click', function(e) {
         return;
     }
 
-    // GUARDAMOS LOS DATOS EN LOCALSTORAGE PARA USARLOS EN FORM.HTML
+    // Tipo de vuelo seleccionado
+    let flightType = "Return";
+    document.getElementsByName('vuelo').forEach(r => { if (r.checked) flightType = r.value; });
+
+    // Clase seleccionada
+    let travelClass = "Economic";
+    document.getElementsByName('travel-class').forEach(r => { if (r.checked) travelClass = r.value.charAt(0).toUpperCase() + r.value.slice(1); });
+
+    // Fechas
+    const departure = document.getElementById('departure-date').value;
+    const returnDate = document.getElementById('return-date').value;
+
+    // Generar Booking ID
+    const bookingId = generateBookingId();
+
+    // GUARDAR EN LOCALSTORAGE
     localStorage.setItem('ultimaBusquedaOrigin', origin);
     localStorage.setItem('ultimaBusquedaDestiny', destination);
     localStorage.setItem('cantAdults', adults);
     localStorage.setItem('cantChildren', children);
     localStorage.setItem('cantSeniors', seniors);
+    localStorage.setItem('bookingId', bookingId);
+    localStorage.setItem('flightType', flightType);
+    localStorage.setItem('travelClass', travelClass);
+    localStorage.setItem('departureDate', departure);
+    localStorage.setItem('returnDate', returnDate);
+    localStorage.setItem('totalPassengers', totalPassengers);
 });
 
 // Lógica de fechas y tipo de vuelo
@@ -102,6 +132,9 @@ window.addEventListener("DOMContentLoaded", function() {
     const minDate = `${yyyy}-${mm}-${dd}`;
 
     document.getElementById('departure-date').setAttribute('min', minDate);
+
+    // ===== CARGAR DATOS DEL BOOKING EN EL CHECK-IN =====
+    cargarDatosCheckin();
 });
 
 document.getElementById('departure-date').addEventListener('change', function() {
@@ -112,4 +145,72 @@ document.getElementById('departure-date').addEventListener('change', function() 
     if (returnDateInput.value && returnDateInput.value < departureDate) {
         returnDateInput.value = '';
     }
+});
+
+// ===== FUNCIÓN PARA CARGAR DATOS EN CHECK-IN =====
+function cargarDatosCheckin() {
+    const bookingId = localStorage.getItem('bookingId');
+    const origin = localStorage.getItem('ultimaBusquedaOrigin');
+    const destiny = localStorage.getItem('ultimaBusquedaDestiny');
+    const departure = localStorage.getItem('departureDate');
+    const returnDate = localStorage.getItem('returnDate');
+    const totalPassengers = localStorage.getItem('totalPassengers');
+    const travelClass = localStorage.getItem('travelClass');
+    const flightType = localStorage.getItem('flightType');
+
+    const noBookingEl = document.getElementById('checkin-no-booking');
+    const ticketCard = document.getElementById('ticket-card');
+    const formSection = document.getElementById('checkin-form-section');
+
+    if (!bookingId || !origin || !destiny) {
+        // No hay booking guardado
+        noBookingEl.style.display = 'block';
+        ticketCard.style.display = 'none';
+        formSection.style.display = 'none';
+        return;
+    }
+
+    // Hay booking — mostrar ticket y formulario
+    noBookingEl.style.display = 'none';
+    ticketCard.style.display = 'block';
+    formSection.style.display = 'block';
+
+    // Extraer código de ciudad (últimas 3 letras si existen)
+    function getCityCode(str) {
+        const parts = str.trim().split(' ');
+        const last = parts[parts.length - 1];
+        return (last.length === 3 && last === last.toUpperCase()) ? last : str.substring(0, 3).toUpperCase();
+    }
+
+    function getCityName(str) {
+        const parts = str.trim().split(' ');
+        const last = parts[parts.length - 1];
+        if (last.length === 3 && last === last.toUpperCase()) {
+            return parts.slice(0, -1).join(' ');
+        }
+        return str;
+    }
+
+    function formatDate(dateStr) {
+        if (!dateStr) return '—';
+        const [y, m, d] = dateStr.split('-');
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return `${d} ${months[parseInt(m)-1]} ${y}`;
+    }
+
+    document.getElementById('ticket-booking-id').textContent = 'Booking ID: ' + bookingId;
+    document.getElementById('ticket-origin-code').textContent = getCityCode(origin);
+    document.getElementById('ticket-origin-name').textContent = getCityName(origin);
+    document.getElementById('ticket-dest-code').textContent = getCityCode(destiny);
+    document.getElementById('ticket-dest-name').textContent = getCityName(destiny);
+    document.getElementById('ticket-departure').textContent = formatDate(departure);
+    document.getElementById('ticket-return').textContent = (flightType === 'Return' && returnDate) ? formatDate(returnDate) : 'One way';
+    document.getElementById('ticket-passengers').textContent = totalPassengers + (totalPassengers === '1' ? ' Passenger' : ' Passengers');
+    document.getElementById('ticket-class').textContent = travelClass || 'Economic';
+    document.getElementById('ticket-flight-type').textContent = flightType === 'Return' ? 'Round trip' : 'One way';
+}
+
+// Escuchar cambios de pestaña para recargar datos
+document.getElementById('tab2').addEventListener('change', function() {
+    if (this.checked) cargarDatosCheckin();
 });
