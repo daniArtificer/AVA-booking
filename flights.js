@@ -1,123 +1,108 @@
-// Lee del localStorage
-const origenBusqueda = localStorage.getItem('ultimaBusquedaOrigin');
-const destinoBusqueda = localStorage.getItem('ultimaBusquedaDestiny');
+// 1. Recuperamos los datos de la búsqueda
+const origenBusqueda = localStorage.getItem('ultimaBusquedaOrigin') || "";
+const destinoBusqueda = localStorage.getItem('ultimaBusquedaDestiny') || "";
 
-const vuelos = [
-    { id: "F001", origin: "United States", destiny: "United Kingdom", dep: "08:00", arr: "20:00" },
-    { id: "F002", origin: "United States", destiny: "France", dep: "08:00", arr: "20:00" },
-    { id: "F003", origin: "United States", destiny: "China", dep: "08:00", arr: "20:00" },
-    { id: "F004", origin: "United States", destiny: "Germany", dep: "08:00", arr: "20:00" },
-    { id: "F005", origin: "United States", destiny: "Italy", dep: "08:00", arr: "20:00" },
-    { id: "F006", origin: "United States", destiny: "Argentina", dep: "08:00", arr: "20:00" },
-    { id: "F007", origin: "United States", destiny: "Japan", dep: "08:00", arr: "20:00" },
-    { id: "F008", origin: "United States", destiny: "Venezuela", dep: "08:00", arr: "20:00" },
-
-    { id: "F009", origin: "United Kingdom", destiny: "United States", dep: "08:00", arr: "20:00" },
-    { id: "F010", origin: "United Kingdom", destiny: "France", dep: "08:00", arr: "20:00" },
-    { id: "F011", origin: "United Kingdom", destiny: "China", dep: "08:00", arr: "20:00" },
-    { id: "F012", origin: "United Kingdom", destiny: "Germany", dep: "08:00", arr: "20:00" },
-    { id: "F013", origin: "United Kingdom", destiny: "Italy", dep: "08:00", arr: "20:00" },
-    { id: "F014", origin: "United Kingdom", destiny: "Argentina", dep: "08:00", arr: "20:00" },
-    { id: "F015", origin: "United Kingdom", destiny: "Japan", dep: "08:00", arr: "20:00" },
-    { id: "F016", origin: "United Kingdom", destiny: "Venezuela", dep: "08:00", arr: "20:00" },
-
-    { id: "F017", origin: "France", destiny: "United States", dep: "08:00", arr: "20:00" },
-    { id: "F018", origin: "France", destiny: "United Kingdom", dep: "08:00", arr: "20:00" },
-    { id: "F019", origin: "France", destiny: "China", dep: "08:00", arr: "20:00" },
-    { id: "F020", origin: "France", destiny: "Germany", dep: "08:00", arr: "20:00" },
-    { id: "F021", origin: "France", destiny: "Italy", dep: "08:00", arr: "20:00" },
-    { id: "F022", origin: "France", destiny: "Argentina", dep: "08:00", arr: "20:00" },
-    { id: "F023", origin: "France", destiny: "Japan", dep: "08:00", arr: "20:00" },
-    { id: "F024", origin: "France", destiny: "Venezuela", dep: "08:00", arr: "20:00" },
-
-    { id: "F025", origin: "China", destiny: "United States", dep: "08:00", arr: "20:00" },
-    { id: "F026", origin: "China", destiny: "United Kingdom", dep: "08:00", arr: "20:00" },
-    { id: "F027", origin: "China", destiny: "France", dep: "08:00", arr: "20:00" },
-    { id: "F028", origin: "China", destiny: "Germany", dep: "08:00", arr: "20:00" },
-    { id: "F029", origin: "China", destiny: "Italy", dep: "08:00", arr: "20:00" },
-    { id: "F030", origin: "China", destiny: "Argentina", dep: "08:00", arr: "20:00" },
-    { id: "F031", origin: "China", destiny: "Japan", dep: "08:00", arr: "20:00" },
-    { id: "F032", origin: "China", destiny: "Venezuela", dep: "08:00", arr: "20:00" },
-
-    { id: "F033", origin: "Germany", destiny: "United States", dep: "08:00", arr: "20:00" },
-    { id: "F034", origin: "Germany", destiny: "United Kingdom", dep: "08:00", arr: "20:00" },
-    { id: "F035", origin: "Germany", destiny: "France", dep: "08:00", arr: "20:00" },
-    { id: "F036", origin: "Germany", destiny: "China", dep: "08:00", arr: "20:00" },
-    { id: "F037", origin: "Germany", destiny: "Italy", dep: "08:00", arr: "20:00" },
-    { id: "F038", origin: "Germany", destiny: "Argentina", dep: "08:00", arr: "20:00" },
-    { id: "F039", origin: "Germany", destiny: "Japan", dep: "08:00", arr: "20:00" },
-    { id: "F040", origin: "Germany", destiny: "Venezuela", dep: "08:00", arr: "20:00" },
-
-    { id: "F041", origin: "Italy", destiny: "United States", dep: "08:00", arr: "20:00" },
-    { id: "F042", origin: "Italy", destiny: "United Kingdom", dep: "08:00", arr: "20:00" },
-    { id: "F043", origin: "Italy", destiny: "France", dep: "08:00", arr: "20:00" },
-    { id: "F044", origin: "Italy", destiny: "China", dep: "08:00", arr: "20:00" },
-    { id: "F045", origin: "Italy", destiny: "Germany", dep: "08:00", arr: "20:00" },
-    { id: "F046", origin: "Italy", destiny: "Argentina", dep: "08:00", arr: "20:00" },
-    { id: "F047", origin: "Italy", destiny: "Japan", dep: "08:00", arr: "20:00" },
-    { id: "F048", origin: "Italy", destiny: "Venezuela", dep: "08:00", arr: "20:00" },
-
-    { id: "F049", origin: "Argentina", destiny: "United States", dep: "08:00", arr: "20:00" },
-    { id: "F050", origin: "Argentina", destiny: "United Kingdom", dep: "08:00", arr: "20:00" },
-    { id: "F051", origin: "Argentina", destiny: "France", dep: "08:00", arr: "20:00" },
-    { id: "F052", origin: "Argentina", destiny: "China", dep: "08:00", arr: "20:00" },
-    { id: "F053", origin: "Argentina", destiny: "Germany", dep: "08:00", arr: "20:00" },
-    { id: "F054", origin: "Argentina", destiny: "Italy", dep: "08:00", arr: "20:00" },
-    { id: "F055", origin: "Argentina", destiny: "Japan", dep: "08:00", arr: "20:00" },
-    { id: "F056", origin: "Argentina", destiny: "Venezuela", dep: "08:00", arr: "20:00" },
-
-    { id: "F057", origin: "Japan", destiny: "United States", dep: "08:00", arr: "20:00" },
-    { id: "F058", origin: "Japan", destiny: "United Kingdom", dep: "08:00", arr: "20:00" },
-    { id: "F059", origin: "Japan", destiny: "France", dep: "08:00", arr: "20:00" },
-    { id: "F060", origin: "Japan", destiny: "China", dep: "08:00", arr: "20:00" },
-    { id: "F061", origin: "Japan", destiny: "Germany", dep: "08:00", arr: "20:00" },
-    { id: "F062", origin: "Japan", destiny: "Italy", dep: "08:00", arr: "20:00" },
-    { id: "F063", origin: "Japan", destiny: "Argentina", dep: "08:00", arr: "20:00" },
-    { id: "F064", origin: "Japan", destiny: "Venezuela", dep: "08:00", arr: "20:00" },
-
-    { id: "F065", origin: "Venezuela", destiny: "United States", dep: "08:00", arr: "20:00" },
-    { id: "F066", origin: "Venezuela", destiny: "United Kingdom", dep: "08:00", arr: "20:00" },
-    { id: "F067", origin: "Venezuela", destiny: "France", dep: "08:00", arr: "20:00" },
-    { id: "F068", origin: "Venezuela", destiny: "China", dep: "08:00", arr: "20:00" },
-    { id: "F069", origin: "Venezuela", destiny: "Germany", dep: "08:00", arr: "20:00" },
-    { id: "F070", origin: "Venezuela", destiny: "Italy", dep: "08:00", arr: "20:00" },
-    { id: "F071", origin: "Venezuela", destiny: "Argentina", dep: "08:00", arr: "20:00" },
-    { id: "F072", origin: "Venezuela", destiny: "Japan", dep: "08:00", arr: "20:00" }
+const destinosMaestros = [
+    { pais: "Spain", cod: "JBU" },
+    { pais: "United States", cod: "DTT" },
+    { pais: "United Kingdom", cod: "LON" },
+    { pais: "France", cod: "PAR" },
+    { pais: "China", cod: "BJS" },
+    { pais: "Germany", cod: "XHJ" },
+    { pais: "Italy", cod: "MXP" },
+    { pais: "Mexico", cod: "ACA" },
+    { pais: "Argentina", cod: "BUE" },
+    { pais: "Japan", cod: "TYO" },
+    { pais: "Venezuela", cod: "CCS" }
 ];
+
+// 2. Definición de estados y sus clases CSS
+const estadosVuelo = [
+    { texto: "On time", clase: "normal" },
+    { texto: "Delayed", clase: "delayed" },
+    { texto: "Boarding", clase: "on-boarding" }
+];
+
+function generarHora() {
+    const horas = ["01", "03", "05", "08", "10", "12", "14", "17", "20", "22"];
+    const mins = ["00", "15", "30", "45"];
+    const ampm = Math.random() > 0.5 ? "AM" : "PM";
+    return `${horas[Math.floor(Math.random() * horas.length)]}:${mins[Math.floor(Math.random() * mins.length)]} ${ampm}`;
+}
 
 function cargarVuelos() {
     const tablaBody = document.querySelector(".flights-table tbody");
+    if (!tablaBody) return;
 
-    // filtrar usando los valores recuperados
-    const vuelosFiltrados = vuelos.filter(vuelo =>
-        vuelo.origin.toLowerCase().trim() === origenBusqueda.toLowerCase().trim() &&
-        vuelo.destiny.toLowerCase().trim() === destinoBusqueda.toLowerCase().trim()
-    );
+    let listaVuelosAMostrar = [];
 
-    // renderiza
-    tablaBody.innerHTML = "";
-    if (vuelosFiltrados.length > 0) {
-        vuelosFiltrados.forEach(vuelo => {
-            tablaBody.innerHTML += `
-                <tr>
-                    <td><strong>${vuelo.id}</strong></td>
-                    <td>${vuelo.origin}</td>
-                    <td>${vuelo.destiny}</td>
-                    <td>${vuelo.dep}</td>
-                    <td>${vuelo.arr}</td>
-                    <td><button class="btn-select">Select</button></td>
-                </tr>
-            `;
+    // Función auxiliar para obtener un estado aleatorio
+    const obtenerEstadoAzar = () => estadosVuelo[Math.floor(Math.random() * estadosVuelo.length)];
+
+    if (origenBusqueda && destinoBusqueda) {
+        const infoOrig = destinosMaestros.find(d => d.pais.toLowerCase() === origenBusqueda.toLowerCase().trim());
+        const infoDest = destinosMaestros.find(d => d.pais.toLowerCase() === destinoBusqueda.toLowerCase().trim());
+
+        const nombreOrigen = infoOrig ? `${infoOrig.pais} ${infoOrig.cod}` : origenBusqueda;
+        const nombreDestino = infoDest ? `${infoDest.pais} ${infoDest.cod}` : destinoBusqueda;
+
+        listaVuelosAMostrar.push({
+            id: "AVA-" + Math.floor(Math.random() * 900 + 100),
+            origin: nombreOrigen,
+            destiny: nombreDestino,
+            dep: "08:00 AM",
+            arr: "11:30 AM",
+            status: obtenerEstadoAzar()
         });
-    } else {
-        tablaBody.innerHTML = `
-            <tr>
-                <td colspan="6" style="text-align: center; padding: 40px;">
-                    <h3>No flights found for this route</h3>
-                    <p>From: <b>${origenBusqueda}</b> to: <b>${destinoBusqueda}</b></p>
-                </td>
-            </tr>`;
+
+        listaVuelosAMostrar.push({
+            id: "AVA-" + Math.floor(Math.random() * 900 + 100),
+            origin: nombreOrigen,
+            destiny: nombreDestino,
+            dep: "04:00 PM",
+            arr: "07:30 PM",
+            status: obtenerEstadoAzar()
+        });
     }
+
+    for (let i = 0; i < 6; i++) {
+        const azarOrig = destinosMaestros[Math.floor(Math.random() * destinosMaestros.length)];
+        let azarDest = destinosMaestros[Math.floor(Math.random() * destinosMaestros.length)];
+
+        while (azarDest.pais === azarOrig.pais) {
+            azarDest = destinosMaestros[Math.floor(Math.random() * destinosMaestros.length)];
+        }
+
+        listaVuelosAMostrar.push({
+            id: "AVA-" + Math.floor(Math.random() * 900 + 100),
+            origin: `${azarOrig.pais} ${azarOrig.cod}`,
+            destiny: `${azarDest.pais} ${azarDest.cod}`,
+            dep: generarHora(),
+            arr: generarHora(),
+            status: obtenerEstadoAzar()
+        });
+    }
+
+    tablaBody.innerHTML = "";
+    listaVuelosAMostrar.forEach(vuelo => {
+        // Bloqueo de acceso: si el estado es Boarding, el botón se deshabilita
+        const isBoarding = vuelo.status.texto === "Boarding";
+        const linkHTML = isBoarding 
+            ? `<span class="btn-select disabled" onclick="alert('This flight is already boarding and cannot be booked.')">Select</span>`
+            : `<a href="form.html" class="btn-select">Select</a>`;
+
+        tablaBody.innerHTML += `
+            <tr>
+                <td><strong>${vuelo.id}</strong></td>
+                <td>${vuelo.origin}</td>
+                <td>${vuelo.destiny}</td>
+                <td>${vuelo.dep}</td>
+                <td>${vuelo.arr}</td>
+                <td><span class="status-badge ${vuelo.status.clase}">${vuelo.status.texto}</span></td>
+                <td>${linkHTML}</td>
+            </tr>
+        `;
+    });
 }
 
-cargarVuelos();
+document.addEventListener('DOMContentLoaded', cargarVuelos);
