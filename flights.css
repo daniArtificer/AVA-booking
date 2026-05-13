@@ -1,90 +1,257 @@
-.h2{
-    font-family: sans-serif;
-    color: #0a1040; 
-    text-align: center; 
-    margin-bottom: 20px;
+nav{
+    background-color: #22264d;
+    padding: 10px;
+    text-align: center;
+    height: 200px;
 }
-
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    margin-top: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.flights-table {
-    width: 100%;
-    border-collapse: collapse; /* Elimina el espacio entre bordes */
+header{
     background-color: white;
-    font-family: 'sans-serif';
-    text-align: left;
+    padding: 20px;
+    height: 700px;
+    display: flex;
+    flex-direction: row; 
+    gap: 50px;
+    box-sizing: border-box;
+    justify-content: center;
 }
-
-/* Estilo del encabezado */
-.flights-table thead tr {
-    background-color: #0a1040; /* El azul oscuro de tu logo */
-    color: white;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-.flights-table th, 
-.flights-table td {
-    padding: 18px 25px;
-    border-bottom: 1px solid #eee;
-}
-
-/* Filas alternas (Efecto Cebra) */
-.flights-table tbody tr:nth-of-type(even) {
-    background-color: #f8f9fa;
-}
-
-/* Efecto hover al pasar el ratón */
-.flights-table tbody tr:hover {
-    background-color: #eef2ff;
-    transition: background-color 0.3s ease;
-}
-
-.btn-select {
-    background-color: #0a1040; /* Color azul de tu encabezado */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;    /* ESTO QUITA LA RAYA INFERIOR */
-    display: inline-block;
-    transition: background 0.3s;
-}
-
-.btn-select:hover {
-    background-color: #1a237e;
-    text-decoration: none;    /* Asegura que no aparezca al pasar el mouse */
-}
-/* Estilos para las etiquetas de estado */
-.status-badge {
-    padding: 5px 12px;
+section{
+    border-color:gray;
+    width: 600px;
+    padding: 20px;
+    padding-left: 30px;
+    margin-left: 20px;
+    height: 900px;
     border-radius: 20px;
-    font-size: 12px;
+    border-width: 2px;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+  min-height: 48px;
+  font-size: 25px;
+  background: #f7f8fd;
+  border-radius: 16px;
+  transition: background 0.2s;
+}
+
+.accordion-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sub-label {
+  font-size: 15px;
+  font-family: "Arial";
+  color: #000000;
+}
+.accordion-toggle {
+  color: #4a4f82;
+  font-size: 28px;
+  transition: transform 0.25s;
+}
+.accordion-item.active .accordion-toggle {
+  transform: rotate(90deg);
+}
+
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  background: #fff;
+  padding: 0 32px;
+  transition: max-height 0.4s cubic-bezier(0.86, 0, 0.07, 1), padding 0.2s;
+}
+.accordion-item.active .accordion-panel {
+  max-height: 800px;
+  padding: 24px 32px;
+  border-top: 1px solid #eee;
+}
+
+h2{
+    font-family: "Arial";
+    margin-left: 20px;
+}
+input{
+    width: 250px;
+    padding: 5px;
+    margin: 15px ;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-color: gray;
+    font-size:20px;
+}
+button{
+    width: fit-content; 
+    margin-bottom: 15px;
+    height: 25px;
+    border-radius: 20px;
+}
+label {
+    font-family: "Arial";
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+label input {
+    display: block;
+    margin-top: 5px;
+    width: 100%; 
+    max-width: 300px;
+}
+article{
+    border-color: gray;
+    width: 500px;
+    height: 750px;
+    border-radius: 20px;
+    border-width: 2px;
+    border-style: groove;
+}
+#Pregnancy {
+    font-size: 20px;
+    font-family: "Arial";
+    display: none;
+    margin-top: 5px;
+    margin-left: 20px;
+    padding: 5px; 
+}
+#disability{
+    font-size: 20px;
+    font-family: "Arial";
+    display: block;
+    margin-top: 5px;
+    margin-left: 20px;
+    padding: 5px; 
+}
+.ask{
+    margin: 2px 5px 10px; 
+    width: auto;
+    background-color: #22264d;
+}
+#Gender{
+    font-family: "Arial";
+    font-size: 20px;
+    box-sizing: content-box;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+#calendary{
+    font-family: "Arial";
+}
+#submit {
+    margin-top: -50px;
+    margin-right: 20px;
+    width: 100px;
+    height: 40px;
+    background-color: #22264d;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    float: right;
+}
+/* Estados adicionales */
+.status-badge.delayed {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+/* Botón de selección deshabilitado */
+.btn-select.disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+    pointer-events: auto; /* Permitir el clic para mostrar el alert */
+}
+
+.btn-select.disabled:hover {
+    background-color: #9e9e9e;
+}
+/* Contenedor para centrar el botón */
+.submit-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 40px 0;
+    background-color: white; /* Para que contraste con el fondo */
+}
+
+/* Diseño moderno del botón */
+.btn-submit {
+    background: linear-gradient(135deg, #22264d 0%, #32397a 100%);
+    color: white;
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px 45px;
+    border: 2px solid transparent;
+    border-radius: 50px; /* Forma de cápsula */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(34, 38, 77, 0.2);
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.btn-submit:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: #f4c542; /* Cambia a dorado */
+    color: #22264d;
+    box-shadow: 0 15px 30px rgba(244, 197, 66, 0.4);
+    border: 2px solid #22264d;
+}
+
+/* Efecto al hacer click */
+.btn-submit:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+/* Contenedor del botón */
+.submit-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    clear: both;
+}
+
+/* Estilo del botón de confirmación */
+.btn-submit {
+    /* Fondo y Color */
+    background: linear-gradient(135deg, #22264d 0%, #32397a 100%);
+    color: white;
+    
+    /* Tipografía */
+    font-family: "Arial", sans-serif;
+    font-size: 16px;          /* Tamaño equilibrado */
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 1px;      /* Mejora la legibilidad */
+    white-space: nowrap;      /* Evita que el texto se salga o se parta */
+    
+    /* Espaciado y Dimensiones */
+    padding: 14px 32px;       /* Ajustado para que no sea excesivo */
+    border: 2px solid #f4c542; 
+    border-radius: 50px;      /* Forma de cápsula perfecta */
+    
+    /* Interactividad */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    
+    /* Reset por si acaso */
+    display: inline-block;
+    line-height: 1;           /* Centra verticalmente el texto */
 }
 
-/* Estado: Normal */
-.status-badge.normal {
-    background-color: #e8f5e9;
-    color: #2e7d32;
-}
-
-/* Estado: En abordaje (On Boarding) */
-.status-badge.on-boarding {
-    background-color: #fff3e0;
-    color: #ef6c00;
-}
-
-/* Estado: Antes de abordar (Pre-boarding) */
-.status-badge.pre-boarding {
-    background-color: #e3f2fd;
-    color: #1565c0;
+/* Efecto Hover para que sea más dinámico */
+.btn-submit:hover {
+    background: #f4c542;
+    color: #22264d;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(244, 197, 66, 0.4);
 }
 
