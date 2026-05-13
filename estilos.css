@@ -1,5 +1,7 @@
 body{
     background-color: rgb(179, 178, 178);
+    margin: 0; /* Añadido para evitar un borde blanco alrededor de la página */
+    overflow-x: hidden; /* Evita que salga una barra de desplazamiento horizontal al hacer zoom */
 }
 .fsection {
     position: relative;
@@ -42,7 +44,7 @@ body{
     gap: 15px;
     z-index: 3;
     height: 100px;
-    box-sizing: padding-box 10px;
+    box-sizing: border-box; /* Corregido de padding-box a border-box para evitar desbordes */
     background: transparent;
 }
 h1{
@@ -52,7 +54,6 @@ h1{
     font-family:"sans-serif";
     color: white;
     font-weight: bold;
-    margin: 0;
     margin-top: 20px;
 }
 h4{
@@ -93,27 +94,10 @@ h4{
     left: 0;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;          
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 40px;
-    gap: 15px;
-    z-index: 3;
-    height: 100px;
-    box-sizing: border-box; /* Corregido de padding-box */
-    background: transparent;
-}
-
 .btn-contact {
     margin-left: auto; 
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.2); 
     color: white;
     text-decoration: none;
     font-family: "sans-serif";
@@ -153,8 +137,6 @@ main{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     transition: 0.25s ease;
-    height: 50px;
-    align-items: flex-end;
 }
 input{
     display: none;
@@ -171,14 +153,13 @@ input{
     background:rgba(159, 157, 157, 0.25);
     padding: 10px 60px;
     box-sizing: border-box;
-    cursor: pointer;
     z-index: 7;
 }
 input:checked + label .content {
     background:rgba(120, 120, 122, 0.75);
     color: rgb(0, 0, 0);
     font-size: 25px;
-    font-weight: 800px;
+    font-weight: 800; /* Corregido el "800px" inválido */
     border-top-left-radius: 5px;
 
 }
@@ -188,7 +169,7 @@ input:checked + label .content {
     position: absolute;
     top: 50px;
     left: 0;
-    background-color: white; /* Color sólido */
+    background-color: white; 
     color: black;
     font-family: sans-serif;
     padding: 40px;
@@ -196,19 +177,17 @@ input:checked + label .content {
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     z-index: 9;
-    display: block; /* Asegúrate de que el contenedor siempre exista */
+    display: block; 
 }
 
 .booking-data, .check-in-data {
-    display: none; /* Ocultos por defecto */
+    display: none; 
 }
 
-/* Si el botón 1 está marcado, muestra booking-data */
 #tab1:checked ~ .tab-content .booking-data {
     display: block !important;
 }
 
-/* Si el botón 2 está marcado, muestra check-in-data */
 #tab2:checked ~ .tab-content .check-in-data {
     display: block;
 }
@@ -220,12 +199,11 @@ input:checked + label .content {
 }
 .row-inputs { 
     display: flex;
-    align-items: flex-start; /* Esto los alinea por la parte de arriba */
+    align-items: flex-start; 
     gap: 35px;
     width: 900px;
 }
 
-/* El cuadro de las fechas estilo aerolínea */
 .dates-wrapper {
     flex: 1;
     display: flex;
@@ -266,7 +244,12 @@ input:checked + label .content {
 
 }
 
-/* Ajuste general de los inputs de texto */
+.form-group {
+    padding-top: 17px;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
 .form-group input[type="text"] {
     width: 400px;
     height: 70px;
@@ -274,20 +257,6 @@ input:checked + label .content {
     border: 1px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
-}
-.checkmark {    
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50px;
-}
-.form-group {
-    padding-top: 17px;
-    margin-bottom: 10px;
-    font-size: 22px;
 }
 
 input[type="text"] {
@@ -299,6 +268,17 @@ input[type="text"] {
     border-radius: 10px;
     font-size: 22px;
 }
+
+.checkmark {    
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50px;
+}
+
 .label-group {
     display: flex;
     flex-direction: column;
@@ -358,36 +338,18 @@ input[type="text"] {
     margin-top: 30px;
 }
 
-/* Contenedor específico para los radios de clase */
 .class-radio-group {
     width: 400px;       
-    display: flex;         /* Pone Economic y Business uno al lado del otro */
-    gap: 20px;             /* Espacio entre las dos opciones de clase */
-    background: rgba(159, 157, 157, 0.1); /* Opcional: un fondo suave para resaltar */
+    display: flex;         
+    gap: 20px;             
+    background: rgba(159, 157, 157, 0.1); 
     padding: 10px 20px;
     border-radius: 10px;
-    height: 55px;          /* Sincronizamos altura con el selector de pasajeros [Historial] */
-    box-sizing: border-box; /* Incluye el padding en el tamaño total [8, 9] */
+    height: 55px;          
+    box-sizing: border-box; 
     align-items: center;
 }
 
-/* Reutilizamos los estilos de radio-container y checkmark que ya tienes */
-.radio-container { 
-    display: inline-block;
-    position: relative;
-    padding-left: 35px;
-    cursor: pointer;
-    font-size: 22px;      
-    user-select: none;
-    font-family: sans-serif;
-}
-
-/* Ocultar el radio original del navegador [10] */
-.radio-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
 .radio-container {
     flex-direction: row;
     display: inline-block;
@@ -398,6 +360,7 @@ input[type="text"] {
     cursor: pointer;
     font-size: 22px;
     user-select: none;
+    font-family: sans-serif;
 }
 .radio-container input {
     position: absolute;
@@ -421,17 +384,20 @@ input[type="text"] {
     height: 8px;
     border-radius: 50px;
     background: white;
+    position: absolute;
+    content: "";
+    display: none;
 }
 .search {
     display: flex;
-    justify-content: flex-end; /* Lo alinea a la derecha */
+    justify-content: flex-end; 
     margin-top: 30px;
     width: 890px;
 }
 
 .btn-search {
     padding: 15px 40px;
-    background-color: #0a1040; /* El color guinda de tu proyecto */
+    background-color: #0a1040; 
     color: white;
     text-decoration: none;
     font-family: "sans-serif";
@@ -441,11 +407,13 @@ input[type="text"] {
     transition: all 0.3s ease;
     text-align: center;
     box-shadow: 0 4px 15px rgba(21, 13, 65, 0.3);
+    border: none;
+    cursor: pointer;
 }
 
 .btn-search:hover {
-    background-color: #0d1b3d; /* Un guinda más oscuro al pasar el mouse */
-    transform: translateY(-2px); /* Efecto de levante */
+    background-color: #0d1b3d; 
+    transform: translateY(-2px); 
     box-shadow: 0 6px 20px rgba(17, 32, 83, 0.4);
 }
 
@@ -461,5 +429,16 @@ input[type="text"] {
     color: #b35a5a;
     font-size: 12px;
     margin-top: 5px;
-    display: none; /* Se muestra con JS */
+    display: none; 
 }
+
+
+@media (min-width: 1000px) {
+    body {
+        /* Calcula el ancho actual de la pantalla (100vw) y la escala
+           para que tu diseño de 1000px crezca y ocupe el espacio
+           sin deformar las cajas por dentro. El "1050" deja un margen sutil a los lados. */
+        zoom: calc(100vw / 1050); 
+    }
+}
+
