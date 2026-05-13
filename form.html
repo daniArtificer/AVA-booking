@@ -3,85 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Passenger Details</title>
     <link rel="stylesheet" href="form.css">
 </head>
 <body> 
-    <nav>
-    </nav>
+    <nav></nav>
     <header>
-        <section>
+        <section id="passengers-container">
+            </section>
+
+        <template id="passenger-template">
             <div class="accordion-item">
-            <div class="accordion-header">
-            <div class="accordion-info">
-            <span class="main-label">Adult</span>
-            <span class="sub-label"><h3>Add the passenger details</h3></span>
-            </div>
-            <div class="accordion-toggle">&#8250;</div>
-            </div>
-            <div class="accordion-panel">
-            <h2>Adult Passenger</h2>
-            <br>
-            <form id="formulario" action="#" method="POST">
-                <div>
-                    <label>
-                        First name
-                        <input type="text" name="name" required>
-                    </label>
-                    <label>
-                        Last name
-                        <input type="text" name="last" required>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Email
-                        <input type="text" name="email" required>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Passport
-                        <input type="text" name="passport" required>
-                    </label>
-                </div>
-                <div>
-                    <label>
-                        Date of Birth
-                        <input id="calendary" type="date" name="birth" required>
-                    </label>
-                </div>
-
-                <select id="Gender" name="gender"> 
-                    <option value="opcion1" selected>Female</option>
-                    <option value="opcion2">Male</option>
-                    <option value="opcion3">None</option>
-                </select>
-
-                <div>
-                    <div id="Pregnancy">
-                        <p>Are you Pregnant?</p>
-                        <input class="ask" type="radio" name="sexo" value="Male" checked="checked" /> no<br/>
-                        <input class="ask" type="radio" name="sexo" value="Female"/> yes
+                <div class="accordion-header">
+                    <div class="accordion-info">
+                        <span class="main-label passenger-type-label">Type</span>
+                        <span class="sub-label"><h3>Add the passenger details</h3></span>
                     </div>
+                    <div class="accordion-toggle">&#8250;</div>
                 </div>
-                <div>
-                    <div id="disability">
-                        <p>Do you have any disabilities?</p>
-                        <input class="ask" type="radio" name="disability" checked="checked" /> no<br/>
-                        <input class="ask" type="radio" name="disability"/> yes
-                    </div>
+                <div class="accordion-panel">
+                    <h2 class="passenger-title">Passenger</h2>
+                    <br>
+                    <form class="formulario" action="#" method="POST">
+                        <div>
+                            <label>First name <input type="text" name="name" required></label>
+                            <label>Last name <input type="text" name="last" required></label>
+                        </div>
+                        <div>
+                            <label>Email <input type="text" name="email" required></label>
+                        </div>
+                        <div>
+                            <label>Passport <input type="text" name="passport" required></label>
+                        </div>
+                        <div>
+                            <label>Date of Birth <input class="calendary" type="date" name="birth" required></label>
+                        </div>
+
+                        <select class="gender-select" name="gender"> 
+                            <option value="opcion1" selected>Female</option>
+                            <option value="opcion2">Male</option>
+                            <option value="opcion3">None</option>
+                        </select>
+
+                        <div>
+                            <div class="pregnancy-div" style="display: block;">
+                                <p>Are you Pregnant?</p>
+                                <input class="ask" type="radio" name="embarazo" value="No" checked /> no<br/>
+                                <input class="ask" type="radio" name="embarazo" value="Yes"/> yes
+                            </div>
+                        </div>
+                        <div>
+                            <div class="disability-div">
+                                <p>Do you have any disabilities?</p>
+                                <input class="ask" type="radio" name="disability" value="No" checked /> no<br/>
+                                <input class="ask" type="radio" name="disability" value="Yes"/> yes
+                            </div>
+                        </div>
+                        <br>
+                    </form>
                 </div>
-                <br>
-                <button id="submit" type="submit">submit</button>
-            </form>
             </div>
-            </div>
-        </section>
+        </template>
 
         <aside>
             <article>
-                <button id="ticket">select fare</button>
+                <button id="ticket">Select fare</button>
             </article>
         </aside>
     </header>
