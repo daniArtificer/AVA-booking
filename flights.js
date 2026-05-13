@@ -105,4 +105,4 @@ function cargarVuelos() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', cargarVuelos);
+document.addEventListener('DOMContentLoaded', cargarVuelos); 
