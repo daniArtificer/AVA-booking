@@ -1,12 +1,14 @@
 body{
     background-color: rgb(179, 178, 178);
+    margin: 0;
+    padding: 0;
 }
 .fsection {
     position: relative;
-    width: 1000px;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
-    height: 450px;
+    height: 50vh;
     overflow: visible; 
 }
 
@@ -38,11 +40,11 @@ body{
     align-items: center;
     flex-direction: row;
     justify-content: flex-start;
-    padding: 40px;
+    padding: 2.5vh 3vw;
     gap: 15px;
     z-index: 3;
     height: 100px;
-    box-sizing: padding-box 10px;
+    box-sizing: border-box;
     background: transparent;
 }
 h1{
@@ -54,19 +56,21 @@ h1{
     font-weight: bold;
     margin: 0;
     margin-top: 20px;
+    font-size: clamp(20px, 2.5vw, 36px);
 }
 h4{
     text-align: left;
     font-family:"sans-serif";
     color: white;
     font-weight: normal;
+    font-size: clamp(12px, 1.2vw, 18px);
 }
 #slogan{
-    bottom: -150px;
-    left: 80px;
+    bottom: -9vw;
+    left: 5vw;
     text-align: left;
     position: relative;
-    font-size: 50px;
+    font-size: clamp(24px, 3.5vw, 60px);
     font-family: "sans-serif";
     font-weight: normal; 
     z-index: 3;
@@ -79,41 +83,25 @@ h4{
 }
 #logo{
     align-items:center;
-    width: 50px;
-    height: 50px;
+    width: clamp(35px, 3.5vw, 60px);
+    height: clamp(35px, 3.5vw, 60px);
     border-radius: 20px;
     background-color: transparent;
 }
 
 #nav {
     position: absolute;
-    height: 450px;
-    width: 1000px; 
+    height: 100%;
+    width: 100%; 
     top: 0;
     left: 0;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;          
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 40px;
-    gap: 15px;
-    z-index: 3;
-    height: 100px;
-    box-sizing: border-box; /* Corregido de padding-box */
-    background: transparent;
+    object-fit: cover;
 }
 
 .btn-contact {
     margin-left: auto; 
     padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.2);
     color: white;
     text-decoration: none;
     font-family: "sans-serif";
@@ -122,6 +110,8 @@ h4{
     border-radius: 25px;
     transition: all 0.3s ease;
     z-index: 10;
+    font-size: clamp(12px, 1vw, 18px);
+    white-space: nowrap;
 }
 
 .btn-contact:hover {
@@ -133,43 +123,42 @@ h4{
 main{
     background-color: rgba(0, 0, 0, 0.724);
     position: relative;
-    width: 1000px;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
-    height: 450px;
+    min-height: 50vh;
     overflow: visible; 
 }
 .container {
     display: flex;
-    margin-top: -60px;
     position: relative;
     bottom: 50px;
-    width: 980px;
+    width: 100%;
     align-items: flex-end;
-    height: 50px;
     margin: 0 auto; 
     z-index: 10;
-    background: rgb(255, 255, 255);;
+    background: rgb(255, 255, 255);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     transition: 0.25s ease;
-    height: 50px;
+    height: 55px;
     align-items: flex-end;
+    box-sizing: border-box;
 }
 input{
     display: none;
 }
 .content {
-    width: 490px;
-    height: 50px;
+    width: 50%;
+    height: 55px;
     display: flex;
     align-items: center;
     font-family: "sans-serif";
-    font-size: 25px;
+    font-size: clamp(14px, 1.6vw, 25px);
     font-weight: bold;
     cursor: pointer;
     background:rgba(159, 157, 157, 0.25);
-    padding: 10px 60px;
+    padding: 10px 4%;
     box-sizing: border-box;
     cursor: pointer;
     z-index: 7;
@@ -177,38 +166,36 @@ input{
 input:checked + label .content {
     background:rgba(120, 120, 122, 0.75);
     color: rgb(0, 0, 0);
-    font-size: 25px;
+    font-size: clamp(14px, 1.6vw, 25px);
     font-weight: 800px;
     border-top-left-radius: 5px;
 
 }
 .tab-content {
-    width: 980px;
-    min-height: 300px; 
+    width: 100%;
+    min-height: 340px; 
     position: absolute;
-    top: 50px;
+    top: 55px;
     left: 0;
-    background-color: white; /* Color sólido */
+    background-color: white;
     color: black;
     font-family: sans-serif;
-    padding: 40px;
+    padding: 3vw;
     box-sizing: border-box;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     z-index: 9;
-    display: block; /* Asegúrate de que el contenedor siempre exista */
+    display: block;
 }
 
 .booking-data, .check-in-data {
-    display: none; /* Ocultos por defecto */
+    display: none;
 }
 
-/* Si el botón 1 está marcado, muestra booking-data */
 #tab1:checked ~ .tab-content .booking-data {
     display: block !important;
 }
 
-/* Si el botón 2 está marcado, muestra check-in-data */
 #tab2:checked ~ .tab-content .check-in-data {
     display: block;
 }
@@ -220,12 +207,11 @@ input:checked + label .content {
 }
 .row-inputs { 
     display: flex;
-    align-items: flex-start; /* Esto los alinea por la parte de arriba */
-    gap: 35px;
-    width: 900px;
+    align-items: flex-start;
+    gap: 2vw;
+    width: 100%;
 }
 
-/* El cuadro de las fechas estilo aerolínea */
 .dates-wrapper {
     flex: 1;
     display: flex;
@@ -246,7 +232,7 @@ input:checked + label .content {
 }
 
 .date-box label {
-    font-size: 18px;
+    font-size: clamp(12px, 1.2vw, 18px);
     color: #666;
 }
 
@@ -254,21 +240,19 @@ input:checked + label .content {
     display: block;
     border: none;
     background: transparent;
-    font-size: 18px;
+    font-size: clamp(12px, 1.2vw, 18px);
     outline: none;
     cursor: pointer;
-    width: 150px;
+    width: 100%;
     color: #333;
 }
 
 #return-date.display{
     display:block;
-
 }
 
-/* Ajuste general de los inputs de texto */
 .form-group input[type="text"] {
-    width: 400px;
+    width: 100%;
     height: 70px;
     margin-top: 20px;
     border: 1px solid #ccc;
@@ -287,17 +271,17 @@ input:checked + label .content {
 .form-group {
     padding-top: 17px;
     margin-bottom: 10px;
-    font-size: 22px;
+    font-size: clamp(14px, 1.5vw, 22px);
 }
 
 input[type="text"] {
     display: block;
-    width: 500px;
+    width: 100%;
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    font-size: 22px;
+    font-size: clamp(14px, 1.5vw, 22px);
 }
 .label-group {
     display: flex;
@@ -309,14 +293,14 @@ input[type="text"] {
 .dropdown-box {
     display: none; 
     position: absolute;
-    width: 400px;
+    width: clamp(250px, 28vw, 400px);
     height: 300px;
     background: rgb(255, 255, 255);
     border-radius: 15px;
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     z-index: 10; 
-    font-size: 25px;
+    font-size: clamp(16px, 1.6vw, 25px);
 }
 .toggle-input:checked ~ .dropdown-box {
     display: block; 
@@ -329,8 +313,8 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 22px;
-    width: 230px;
+    font-size: clamp(14px, 1.5vw, 22px);
+    width: clamp(160px, 16vw, 230px);
     font-family: sans-serif;
 } 
 
@@ -342,47 +326,44 @@ input[type="text"] {
 }
 .btn-confirm{
     display: block;
-    width: 400px;
+    width: 100%;
     padding: 12px 0;
     background: #03182a;
     color: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: clamp(16px, 1.5vw, 22px);
 }
 .booking-row {
     display: flex;         
-    gap: 30px;             
+    gap: 2vw;             
     align-items: center;  
     margin-top: 30px;
 }
 
-/* Contenedor específico para los radios de clase */
 .class-radio-group {
-    width: 400px;       
-    display: flex;         /* Pone Economic y Business uno al lado del otro */
-    gap: 20px;             /* Espacio entre las dos opciones de clase */
-    background: rgba(159, 157, 157, 0.1); /* Opcional: un fondo suave para resaltar */
+    width: clamp(200px, 28vw, 400px);       
+    display: flex;
+    gap: 20px;
+    background: rgba(159, 157, 157, 0.1);
     padding: 10px 20px;
     border-radius: 10px;
-    height: 55px;          /* Sincronizamos altura con el selector de pasajeros [Historial] */
-    box-sizing: border-box; /* Incluye el padding en el tamaño total [8, 9] */
+    height: 55px;
+    box-sizing: border-box;
     align-items: center;
 }
 
-/* Reutilizamos los estilos de radio-container y checkmark que ya tienes */
 .radio-container { 
     display: inline-block;
     position: relative;
     padding-left: 35px;
     cursor: pointer;
-    font-size: 22px;      
+    font-size: clamp(14px, 1.5vw, 22px);
     user-select: none;
     font-family: sans-serif;
 }
 
-/* Ocultar el radio original del navegador [10] */
 .radio-container input {
     position: absolute;
     opacity: 0;
@@ -396,7 +377,7 @@ input[type="text"] {
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: clamp(14px, 1.5vw, 22px);
     user-select: none;
 }
 .radio-container input {
@@ -424,19 +405,19 @@ input[type="text"] {
 }
 .search {
     display: flex;
-    justify-content: flex-end; /* Lo alinea a la derecha */
+    justify-content: flex-end;
     margin-top: 30px;
-    width: 890px;
+    width: 100%;
 }
 
 .btn-search {
     padding: 15px 40px;
-    background-color: #0a1040; /* El color guinda de tu proyecto */
+    background-color: #0a1040;
     color: white;
     text-decoration: none;
     font-family: "sans-serif";
     font-weight: bold;
-    font-size: 18px;
+    font-size: clamp(13px, 1.2vw, 18px);
     border-radius: 30px;
     transition: all 0.3s ease;
     text-align: center;
@@ -444,8 +425,8 @@ input[type="text"] {
 }
 
 .btn-search:hover {
-    background-color: #0d1b3d; /* Un guinda más oscuro al pasar el mouse */
-    transform: translateY(-2px); /* Efecto de levante */
+    background-color: #0d1b3d;
+    transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(17, 32, 83, 0.4);
 }
 
@@ -461,7 +442,258 @@ input[type="text"] {
     color: #b35a5a;
     font-size: 12px;
     margin-top: 5px;
-    display: none; /* Se muestra con JS */
+    display: none;
+}
+
+.origin-container {
+    flex: 1;
+}
+
+/* ===== CHECK-IN STYLES ===== */
+.checkin-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.checkin-no-booking {
+    text-align: center;
+    padding: 40px 20px;
+    color: #888;
+}
+
+.checkin-no-booking .no-booking-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.checkin-no-booking p {
+    font-size: clamp(14px, 1.4vw, 20px);
+    margin: 0;
+}
+
+.ticket-card {
+    background: linear-gradient(135deg, #03182a 0%, #0a1040 100%);
+    border-radius: 16px;
+    padding: 24px 28px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket-card::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+}
+
+.ticket-card::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    right: 60px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+}
+
+.ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ticket-airline {
+    font-size: clamp(16px, 1.8vw, 26px);
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.ticket-booking-id {
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 6px 14px;
+    font-size: clamp(11px, 1vw, 15px);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.ticket-route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0;
+}
+
+.ticket-city {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-city-code {
+    font-size: clamp(28px, 3.5vw, 52px);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.ticket-city-name {
+    font-size: clamp(11px, 1vw, 15px);
+    opacity: 0.75;
+    margin-top: 4px;
+}
+
+.ticket-route-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    padding: 0 16px;
+}
+
+.ticket-route-line {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.3);
+    position: relative;
+    margin: 8px 0;
+}
+
+.ticket-route-line::before,
+.ticket-route-line::after {
+    content: "âœˆ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+}
+
+.ticket-flight-type {
+    font-size: clamp(10px, 0.9vw, 13px);
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ticket-divider {
+    border: none;
+    border-top: 1px dashed rgba(255,255,255,0.25);
+    margin: 16px 0;
+}
+
+.ticket-details-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.ticket-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.ticket-detail-label {
+    font-size: clamp(9px, 0.8vw, 12px);
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.ticket-detail-value {
+    font-size: clamp(12px, 1.1vw, 16px);
+    font-weight: 600;
+}
+
+/* Check-in form section */
+.checkin-form-section {
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 24px 28px;
+}
+
+.checkin-form-title {
+    font-size: clamp(14px, 1.4vw, 20px);
+    font-weight: 700;
+    color: #03182a;
+    margin: 0 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e8e8e8;
+}
+
+.checkin-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.checkin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.checkin-field label {
+    font-size: clamp(11px, 1vw, 14px);
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.checkin-field input {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    font-size: clamp(13px, 1.2vw, 17px);
+    font-family: sans-serif;
+    color: #333;
+    background: white;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.checkin-field input:focus {
+    outline: none;
+    border-color: #03182a;
+}
+
+.checkin-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.btn-checkin {
+    padding: 15px 45px;
+    background-color: #0a1040;
+    color: white;
+    font-family: "sans-serif";
+    font-weight: bold;
+    font-size: clamp(13px, 1.2vw, 18px);
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(21, 13, 65, 0.3);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-checkin:hover {
+    background-color: #0d1b3d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(17, 32, 83, 0.4);
 }
 
 
